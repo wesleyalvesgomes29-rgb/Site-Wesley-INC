@@ -79,48 +79,48 @@ export const SimulatorSection: React.FC<SimulatorSectionProps> = ({ onOpenLeadFo
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center rounded-3xl bg-gradient-to-br from-[#131723] via-[#10141D] to-[#0A0D14] p-6 sm:p-10 border border-white/10 shadow-2xl"
         >
           
-          {/* Left Column: Wesley Chibi with original "SIMULAÇÃO" Plaque artwork */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center text-center relative">
+          {/* Left Column: Direct Benefits & Action */}
+          <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 bg-[#0C0F16] rounded-2xl border border-white/10 h-full">
             
-            {/* Ambient Orange Glow */}
-            <div className="absolute w-72 h-72 bg-[#FF600B]/18 rounded-full blur-[90px] pointer-events-none" />
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF600B]/15 border border-[#FF600B]/30 text-xs font-bold text-[#FF8540] mb-4">
+                <Calculator className="w-3.5 h-3.5" />
+                <span>ANÁLISE DE FINANCIAMENTO</span>
+              </div>
 
-            {/* Seamless Chibi Character */}
-            <div className="relative z-10 flex flex-col items-center group">
-              <img
-                src="/images/wesley/wesley-chibi.png"
-                alt="Wesley com Placa de Simulação INC"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (!target.src.endsWith('wesley-chibi.jpg')) {
-                    target.src = '/images/wesley/wesley-chibi.jpg';
-                  }
-                }}
-                className="w-auto h-auto max-h-[340px] sm:max-h-[380px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display leading-snug mb-3">
+                Simulação de Fluxo & Entrada
+              </h3>
 
-              {/* Ground Shadow */}
-              <div className="w-44 sm:w-56 h-4 bg-black/60 rounded-full blur-md -mt-2 pointer-events-none" />
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-6">
+                Descubra as condições reais para o seu perfil e veja como se encaixam as parcelas e subsídios no seu orçamento.
+              </p>
 
-              <div className="mt-3">
-                <div className="text-sm font-bold text-white font-display">Simulação de Fluxo & Entrada</div>
-                <div className="text-xs text-neutral-400 mt-0.5">
-                  Descubra as condições reais para o seu perfil
+              <div className="space-y-3 mb-6 text-xs text-neutral-300">
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#FF600B] shrink-0" />
+                  <span>Enquadramento Minha Casa Minha Vida</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Cálculo com uso do saldo FGTS</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#FF8540] shrink-0" />
+                  <span>Tabela e condições oficiais da INC</span>
                 </div>
               </div>
             </div>
 
             {/* Direct Official Simulator Button */}
-            <div className="mt-6 w-full max-w-[280px] z-10">
+            <div className="pt-4 border-t border-white/10">
               <button
                 id="btn-fazer-simulacao-principal"
                 onClick={handleOpenOfficialSimulator}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-extrabold text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/30 hover:shadow-[#FF600B]/50 transition-all cursor-pointer border border-[#FFA066]/30 active:scale-95"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-extrabold text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/30 hover:shadow-[#FF600B]/50 transition-all cursor-pointer border border-[#FFA066]/30 active:scale-95"
               >
                 <Calculator className="w-4 h-4" />
-                <span>Fazer simulação</span>
+                <span>Simulador Oficial INC</span>
                 {SIMULATOR_URL.startsWith('http') && <ExternalLink className="w-3.5 h-3.5" />}
               </button>
             </div>

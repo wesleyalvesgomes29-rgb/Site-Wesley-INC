@@ -5,12 +5,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { DevelopmentsOverview } from './components/DevelopmentsOverview';
+import { HomeShowcase } from './components/HomeShowcase';
 import { DevelopmentDetailPage } from './components/DevelopmentDetailPage';
 import { HomeContactSection } from './components/HomeContactSection';
 import { Footer } from './components/Footer';
-import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
@@ -112,21 +110,14 @@ export default function App() {
             onNavigateToDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
           />
         ) : (
-          /* Home Page: Clean, Modern Showcase (Vitrine) */
+          /* Home Page: Clean, Single Unified Composition */
           <>
-            {/* 1. Hero Screen */}
-            <Hero
-              onExploreDevelopments={() => scrollToSection('empreendimentos')}
-              onOpenSimulator={() => scrollToSection('contato')}
-              onOpenConsultant={() => scrollToSection('contato')}
-            />
-
-            {/* 2. Vitrine dos Empreendimentos (Cards Resumidos e Clicáveis) */}
-            <DevelopmentsOverview
+            {/* 1. Composição Única: Chibi + Apresentação + Empreendimentos */}
+            <HomeShowcase
               onSelectDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
             />
 
-            {/* 3. Bloco de Contato Simples e Direto */}
+            {/* 2. Bloco de Contato Simples e Direto */}
             <HomeContactSection />
           </>
         )}
@@ -137,9 +128,6 @@ export default function App() {
         onNavigateToPath={navigateToPath}
         onNavigateToSection={scrollToSection}
       />
-
-      {/* Floating WhatsApp Quick Contact Button */}
-      <FloatingWhatsApp />
     </div>
   );
 }

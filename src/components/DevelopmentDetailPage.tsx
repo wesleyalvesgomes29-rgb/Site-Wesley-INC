@@ -5,7 +5,6 @@ import { ParkEspanhaSection } from './ParkEspanhaSection';
 import { SimulatorSection } from './SimulatorSection';
 import { LeadForm } from './LeadForm';
 import { FaqSection } from './FaqSection';
-import { FinalCta } from './FinalCta';
 import { 
   ArrowLeft, 
   Building2, 
@@ -155,12 +154,6 @@ export const DevelopmentDetailPage: React.FC<DevelopmentDetailPageProps> = ({
 
         {/* FAQ Section */}
         <FaqSection />
-
-        {/* Final CTA */}
-        <FinalCta
-          onExploreDevelopments={onNavigateToHome}
-          onOpenSimulator={handleScrollToSimulator}
-        />
       </div>
     </div>
   );

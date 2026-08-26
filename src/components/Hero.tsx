@@ -1,127 +1,73 @@
 import React from 'react';
-import { getWhatsAppLink } from '../data/config';
-import { Building2, Calculator, MessageSquare, Sparkles, ShieldCheck, MapPin, ChevronRight } from 'lucide-react';
+import { Building2, ArrowDown, ShieldCheck } from 'lucide-react';
 
 interface HeroProps {
   onExploreDevelopments: () => void;
-  onOpenSimulator: () => void;
-  onOpenConsultant: () => void;
+  onOpenSimulator?: () => void;
+  onOpenConsultant?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({
-  onExploreDevelopments,
-  onOpenSimulator,
-  onOpenConsultant,
-}) => {
+export const Hero: React.FC<HeroProps> = ({ onExploreDevelopments }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-28 pb-16 lg:pt-36 lg:pb-24 flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#07090C] via-[#0D1016] to-[#0A0C10]"
+      className="relative pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-12 bg-gradient-to-b from-[#07090C] via-[#0D1016] to-[#090B0E] border-b border-white/5 overflow-hidden"
     >
-      {/* Background Futuristic Grid & Ambient Orange Glows */}
-      <div className="absolute inset-0 bg-futuristic-grid opacity-30 pointer-events-none" />
-      
-      {/* Radial Orange Glow Light Beams */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#FF600B]/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/3 -right-32 w-[450px] h-[450px] bg-[#FF600B]/10 rounded-full blur-[100px] pointer-events-none" />
+      {/* Subtle Background Lights */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[240px] bg-[#FF600B]/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Cyber Corner Lines Accent */}
-      <div className="absolute top-24 left-8 hidden lg:block opacity-20 text-[#FF600B] font-mono text-[10px] tracking-widest pointer-events-none">
-        <div>SYS.INC // UBERLANDIA_MG</div>
-        <div>LAT: -18.9186 | LONG: -48.2772</div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
           
-          {/* Text & Content Column (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
+          {/* Text Presentation Column */}
+          <div className="flex-1 text-center md:text-left">
             
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-6 shadow-sm">
+            {/* Pill Tag */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 mb-3 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#FF600B] animate-pulse" />
-              <span className="text-xs font-semibold text-neutral-300 tracking-wide uppercase">
+              <span className="text-[11px] sm:text-xs font-semibold text-neutral-300 tracking-wide uppercase">
                 INC Empreendimentos • Uberlândia - MG
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 font-display">
-              Seu próximo endereço <br className="hidden sm:inline" />
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3 font-display">
+              Imóveis e lançamentos <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-100 to-[#FF8540]">
-                começa aqui.
+                em Uberlândia.
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-neutral-300 max-w-2xl font-normal leading-relaxed mb-8">
-              Conheça os empreendimentos da INC em Uberlândia e encontre uma possibilidade que faça sentido para você.
+            {/* Short Subtitle */}
+            <p className="text-sm sm:text-base text-neutral-300 max-w-xl font-normal leading-relaxed mb-5">
+              Conheça os projetos disponíveis e escolha o empreendimento ideal para você e sua família.
             </p>
 
-            {/* Call to Actions (Primary, Secondary, Consultant) */}
-            <div className="w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8">
-              {/* Button 1: Conhecer empreendimentos */}
+            {/* Direct Action Button */}
+            <div className="flex items-center justify-center md:justify-start gap-3">
               <button
                 id="hero-btn-conhecer"
                 onClick={onExploreDevelopments}
-                className="group flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-base text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/30 hover:shadow-[#FF600B]/50 transition-all duration-300 cursor-pointer active:scale-95 border border-[#FFA573]/30"
+                className="group flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/25 hover:shadow-[#FF600B]/40 transition-all duration-200 cursor-pointer active:scale-95 border border-[#FFA573]/30"
               >
-                <Building2 className="w-5 h-5 transition-transform group-hover:-translate-y-0.5" />
-                <span>Conhecer empreendimentos</span>
-                <ChevronRight className="w-4 h-4 text-white/70 group-hover:translate-x-1 transition-transform" />
+                <Building2 className="w-4 h-4" />
+                <span>Ver empreendimentos</span>
+                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
               </button>
-
-              {/* Button 2: Fazer uma simulação */}
-              <button
-                id="hero-btn-simulacao"
-                onClick={onOpenSimulator}
-                className="group flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-base text-neutral-100 bg-[#151922] hover:bg-[#1C2230] border border-white/10 hover:border-[#FF600B]/50 shadow-md transition-all duration-300 cursor-pointer active:scale-95"
-              >
-                <Calculator className="w-5 h-5 text-[#FF600B]" />
-                <span>Fazer uma simulação</span>
-              </button>
-            </div>
-
-            {/* Third Direct Button: Falar com Wesley */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a
-                id="hero-btn-wesley"
-                href={getWhatsAppLink('Olá Wesley! Estou no site da INC e gostaria de tirar dúvidas sobre os imóveis.')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#FF8540] hover:text-white px-4 py-2 rounded-lg bg-[#FF600B]/10 hover:bg-[#FF600B] border border-[#FF600B]/30 transition-all duration-200"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>Falar com Wesley</span>
-                <span className="text-xs bg-[#FF600B]/30 text-white px-2 py-0.5 rounded-full font-mono">WhatsApp Online</span>
-              </a>
-
-              <div className="flex items-center gap-2 text-xs text-neutral-400">
-                <MapPin className="w-3.5 h-3.5 text-[#FF600B]" />
-                <span>Park Jardim do Sol (Zona Leste) & Park Espanha</span>
-              </div>
             </div>
 
           </div>
 
-          {/* Wesley Chibi Visual Showcase Column (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative mt-8 lg:mt-0">
-            
-            {/* Subtle INC Orange Atmospheric Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-[#FF600B]/20 rounded-full blur-[100px] pointer-events-none" />
-            
-            {/* Holographic HUD Badge on Top */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#131722]/80 border border-white/10 backdrop-blur-md mb-3 z-10 shadow-lg">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[11px] font-bold text-white font-display">WESLEY ALVES</span>
-              <span className="text-[10px] text-[#FF8540] font-mono">• CONSULTOR INC</span>
-            </div>
+          {/* Compact Wesley Chibi Presentation */}
+          <div className="flex flex-col items-center justify-center shrink-0">
+            <div className="relative group">
+              {/* Subtle halo glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 sm:w-44 h-36 sm:h-44 bg-[#FF600B]/20 rounded-full blur-2xl pointer-events-none" />
 
-            {/* Wesley Chibi Original Artwork - Integrated seamlessly on dark background */}
-            <div className="relative z-10 flex flex-col items-center group">
+              {/* Chibi Image - Compact & Optimized */}
               <img
                 src="/images/wesley/wesley-chibi.png"
-                alt="Wesley Consultor INC Empreendimentos"
+                alt="Wesley Alves - Consultor INC Empreendimentos"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
                   const target = e.currentTarget;
@@ -129,22 +75,16 @@ export const Hero: React.FC<HeroProps> = ({
                     target.src = '/images/wesley/wesley-chibi.jpg';
                   }
                 }}
-                className="w-auto h-auto max-h-[380px] sm:max-h-[460px] lg:max-h-[500px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] filter transition-transform duration-500 group-hover:scale-[1.02]"
+                className="w-auto h-auto max-h-[170px] sm:max-h-[210px] object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.85)] filter transition-transform duration-300 group-hover:scale-105"
                 loading="eager"
               />
-
-              {/* Natural Ground Contact Shadow */}
-              <div className="w-48 sm:w-64 h-5 bg-black/70 rounded-full blur-md -mt-3 pointer-events-none" />
             </div>
 
-            {/* Floating Glass Pill Indicator */}
-            <div className="mt-4 flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0F131C]/90 border border-white/10 backdrop-blur-md shadow-xl z-10">
-              <ShieldCheck className="w-4 h-4 text-[#FF600B] shrink-0" />
-              <span className="text-xs font-semibold text-neutral-200">
-                Atendimento humano & exclusivo em Uberlândia
-              </span>
+            {/* Small Official Consultant Tag */}
+            <div className="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#121622]/90 border border-white/10 text-[10px] text-neutral-300 font-mono">
+              <ShieldCheck className="w-3 h-3 text-[#FF600B]" />
+              <span>Consultor Oficial INC</span>
             </div>
-
           </div>
 
         </div>

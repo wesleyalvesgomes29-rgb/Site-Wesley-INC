@@ -1,178 +1,104 @@
 import React from 'react';
-import { DEVELOPMENTS } from '../data/config';
-import { Building2, MapPin, ArrowRight } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 
 interface DevelopmentsOverviewProps {
-  onSelectDevelopment: (id: 'jardim-do-sol' | 'park-espanha') => void;
+  onSelectDevelopment: (id: 'park-espanha' | 'jardim-do-sol') => void;
 }
 
 export const DevelopmentsOverview: React.FC<DevelopmentsOverviewProps> = ({
   onSelectDevelopment,
 }) => {
-  const jardimDoSol = DEVELOPMENTS['jardim-do-sol'];
-  const parkEspanha = DEVELOPMENTS['park-espanha'];
+  const developments = [
+    {
+      id: 'park-espanha' as const,
+      name: 'PARK ESPANHA',
+      location: 'Zona Sul — Uberlândia',
+      image: '/images/park-espanha/fachada-principal.jpg',
+      badge: 'Lançamento',
+    },
+    {
+      id: 'jardim-do-sol' as const,
+      name: 'PARK JARDIM DO SOL',
+      location: 'Novo Mundo — Uberlândia',
+      image: '/images/jardim-do-sol/fachada-principal.jpg',
+      badge: 'Lançamento',
+    },
+  ];
 
   return (
     <section
       id="empreendimentos"
-      className="relative py-20 lg:py-24 bg-[#090B0E] overflow-hidden"
+      className="py-10 sm:py-14 bg-[#090B0E]"
     >
-      {/* Ambient background glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#FF600B]/10 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 mb-3">
-            <Building2 className="w-4 h-4 text-[#FF600B]" />
-            <span className="text-xs font-bold text-neutral-300 tracking-wider uppercase">
-              Empreendimentos Disponíveis
-            </span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display mb-3">
-            Escolha o seu novo endereço
+        {/* Section Title */}
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight font-display">
+            Escolha seu empreendimento
           </h2>
-
-          <p className="text-base text-neutral-400">
-            Conheça os projetos da INC em Uberlândia e encontre o imóvel ideal para você e sua família.
+          <p className="text-xs sm:text-sm text-neutral-400 mt-1">
+            Clique no projeto para ver fotos, plantas e localização completa.
           </p>
         </div>
 
-        {/* Two Showcase Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          
-          {/* Card 1: Park Jardim do Sol */}
-          <div
-            id="card-jardim-do-sol"
-            onClick={() => onSelectDevelopment('jardim-do-sol')}
-            className="group relative rounded-2xl bg-gradient-to-b from-[#141824] to-[#0D1017] border border-white/10 hover:border-[#FF600B]/60 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between cursor-pointer"
-          >
-            <div>
-              {/* Imagem Principal */}
-              <div className="relative h-60 sm:h-64 w-full overflow-hidden bg-[#0A0D14]">
-                <img
-                  src="/images/jardim-do-sol/fachada-principal.jpg"
-                  alt="Park Jardim do Sol - Fachada Oficial"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141824] via-transparent to-black/20" />
-                
-                {/* Localização Badge na Imagem */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
-                  <span className="px-3 py-1 rounded-full bg-[#FF600B] text-white text-xs font-bold uppercase tracking-wider shadow-md">
-                    {jardimDoSol.status}
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-[#090C12]/85 backdrop-blur-md text-white text-xs font-medium border border-white/10 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#FF600B]" />
-                    <span>{jardimDoSol.location.neighborhood} • {jardimDoSol.location.city}</span>
-                  </span>
+        {/* Compact Cards Grid (2 side by side on desktop, stacked on mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          {developments.map((dev) => (
+            <div
+              key={dev.id}
+              id={`card-${dev.id}`}
+              onClick={() => onSelectDevelopment(dev.id)}
+              className="group relative rounded-2xl bg-gradient-to-b from-[#131722] to-[#0D1017] border border-white/10 hover:border-[#FF600B]/60 shadow-lg overflow-hidden transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1"
+            >
+              <div>
+                {/* Compact Image */}
+                <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-[#0A0D14]">
+                  <img
+                    src={dev.image}
+                    alt={dev.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#131722] via-transparent to-black/20" />
+                  
+                  {/* Subtle Badge */}
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#FF600B] text-white text-[11px] font-bold uppercase tracking-wider shadow-md">
+                      {dev.badge}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Information */}
+                <div className="p-4 sm:p-5">
+                  <h3 className="text-lg sm:text-xl font-black text-white font-display group-hover:text-[#FF8540] transition-colors mb-1">
+                    {dev.name}
+                  </h3>
+
+                  <div className="flex items-center gap-1.5 text-xs text-neutral-300 font-medium">
+                    <MapPin className="w-3.5 h-3.5 text-[#FF600B] shrink-0" />
+                    <span>{dev.location}</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Informações Resumidas */}
-              <div className="p-6 sm:p-7">
-                {/* Nome */}
-                <h3 className="text-2xl font-black text-white font-display mb-2 group-hover:text-[#FF8540] transition-colors">
-                  {jardimDoSol.name}
-                </h3>
-                
-                {/* Localização texto */}
-                <div className="flex items-center gap-1.5 text-xs font-medium text-[#FF8540] mb-3">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>{jardimDoSol.location.neighborhood} (Zona Leste)</span>
-                </div>
-
-                {/* Descrição Extremamente Curta */}
-                <p className="text-neutral-300 text-sm leading-relaxed mb-6">
-                  {jardimDoSol.shortDescription}
-                </p>
+              {/* Action Button */}
+              <div className="p-4 sm:p-5 pt-0">
+                <button
+                  id={`btn-explore-${dev.id}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onSelectDevelopment(dev.id);
+                  }}
+                  className="w-full group/btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-md shadow-[#FF600B]/20 transition-all cursor-pointer"
+                >
+                  <span>Conhecer empreendimento</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                </button>
               </div>
             </div>
-
-            {/* Botão Conhecer Empreendimento */}
-            <div className="p-6 sm:p-7 pt-0">
-              <button
-                id="btn-explore-jardim-do-sol"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onSelectDevelopment('jardim-do-sol');
-                }}
-                className="w-full group/btn flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/25 transition-all duration-300 cursor-pointer"
-              >
-                <span>Conhecer empreendimento</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
-            </div>
-          </div>
-
-          {/* Card 2: Park Espanha */}
-          <div
-            id="card-park-espanha"
-            onClick={() => onSelectDevelopment('park-espanha')}
-            className="group relative rounded-2xl bg-gradient-to-b from-[#141824] to-[#0D1017] border border-white/10 hover:border-[#FF600B]/60 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between cursor-pointer"
-          >
-            <div>
-              {/* Imagem Principal */}
-              <div className="relative h-60 sm:h-64 w-full overflow-hidden bg-[#0A0D14]">
-                <img
-                  src="/images/park-espanha/fachada-principal.jpg"
-                  alt="Park Espanha - Fachada Oficial"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141824] via-transparent to-black/20" />
-                
-                {/* Localização Badge na Imagem */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
-                  <span className="px-3 py-1 rounded-full bg-[#FF600B] text-white text-xs font-bold uppercase tracking-wider shadow-md">
-                    {parkEspanha.status}
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-[#090C12]/85 backdrop-blur-md text-white text-xs font-medium border border-white/10 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#FF600B]" />
-                    <span>{parkEspanha.location.addressDescription}</span>
-                  </span>
-                </div>
-              </div>
-
-              {/* Informações Resumidas */}
-              <div className="p-6 sm:p-7">
-                {/* Nome */}
-                <h3 className="text-2xl font-black text-white font-display mb-2 group-hover:text-[#FF8540] transition-colors">
-                  {parkEspanha.name}
-                </h3>
-
-                {/* Localização texto */}
-                <div className="flex items-center gap-1.5 text-xs font-medium text-[#FF8540] mb-3">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>{parkEspanha.location.neighborhood} (Zona Sul)</span>
-                </div>
-
-                {/* Descrição Extremamente Curta */}
-                <p className="text-neutral-300 text-sm leading-relaxed mb-6">
-                  {parkEspanha.shortDescription}
-                </p>
-              </div>
-            </div>
-
-            {/* Botão Conhecer Empreendimento */}
-            <div className="p-6 sm:p-7 pt-0">
-              <button
-                id="btn-explore-park-espanha"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onSelectDevelopment('park-espanha');
-                }}
-                className="w-full group/btn flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/25 transition-all duration-300 cursor-pointer"
-              >
-                <span>Conhecer empreendimento</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
-            </div>
-          </div>
-
+          ))}
         </div>
 
       </div>
