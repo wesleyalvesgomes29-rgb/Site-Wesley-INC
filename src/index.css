@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-inc-orange: #FF600B;
+    --color-inc-orange-hover: #E05005;
+    --color-inc-orange-glow: rgba(255, 96, 11, 0.25);
+    --color-bg-dark: #0A0C10;
+    --color-bg-card: #12161E;
+    --color-bg-surface: #181E29;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #090B0E;
+    color: #E5E7EB;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Futuristic Subtle Effects */
+.bg-futuristic-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(255, 96, 11, 0.15) 0%, rgba(10, 12, 16, 0) 70%);
+}
+
+.glow-orange {
+  box-shadow: 0 0 25px rgba(255, 96, 11, 0.25);
+}
+
+.glow-orange-lg {
+  box-shadow: 0 0 45px rgba(255, 96, 11, 0.35);
+}
+
+.border-glow-orange {
+  border-color: rgba(255, 96, 11, 0.4);
+  box-shadow: inset 0 0 15px rgba(255, 96, 11, 0.1);
+}
+
+.glass-panel {
+  background: rgba(18, 22, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(24, 30, 41, 0.85);
+  border-color: rgba(255, 96, 11, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0C10;
+}
+::-webkit-scrollbar-thumb {
+  background: #252B38;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF600B;
+}
+

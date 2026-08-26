@@ -1,0 +1,6 @@
+{
+  "name": "INC Empreendimentos - Park Jardim do Sol & Park Espanha",
+  "description": "Plataforma comercial moderna e futurista da INC Empreendimentos em Uberlândia-MG com consultoria personalizada do Wesley.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

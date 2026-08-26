@@ -1,0 +1,413 @@
+import { ConsultantConfig, DevelopmentInfo, FaqItem } from '../types';
+
+/**
+ * ============================================================================
+ * CONFIGURAÇÃO CENTRAL DO SITE INC EMPREENDIMENTOS
+ * ============================================================================
+ * Altere as constantes abaixo para atualizar números de contato, links externos
+ * e informações dos empreendimentos sem precisar alterar componentes.
+ */
+
+// 1. NÚMERO OFICIAL DO WHATSAPP (com DDI e DDD, apenas números)
+// WhatsApp Oficial: (34) 99824-3737
+export const WHATSAPP_NUMBER = '5534998243737';
+
+// 2. URL DO SIMULADOR OFICIAL (Pode ser atualizado quando disponível)
+export const SIMULATOR_URL = '#simulador';
+
+// 3. LINK DO INSTAGRAM OFICIAL
+export const INSTAGRAM_URL = 'https://www.instagram.com/incempreendimentos';
+
+// 4. CONFIGURAÇÕES DO CONSULTOR WESLEY
+export const CONSULTANT_CONFIG: ConsultantConfig = {
+  name: 'Wesley',
+  role: 'Consultor Imobiliário Oficial',
+  company: 'INC Empreendimentos',
+  city: 'Uberlândia - MG',
+  phoneFormatted: '(34) 99209-9245',
+  whatsappNumber: WHATSAPP_NUMBER,
+  whatsappDefaultMessage: 'Olá Wesley! Vi os empreendimentos da INC Empreendimentos no site e gostaria de saber mais informações.',
+  instagramUrl: INSTAGRAM_URL,
+  simulatorUrl: SIMULATOR_URL,
+  avatarImage: '/images/wesley/wesley-chibi.png',
+};
+
+// 5. INFORMAÇÕES CONFIRMADAS DOS EMPREENDIMENTOS DA INC
+export const DEVELOPMENTS: Record<'jardim-do-sol' | 'park-espanha', DevelopmentInfo> = {
+  'jardim-do-sol': {
+    id: 'jardim-do-sol',
+    name: 'Park Jardim do Sol',
+    subtitle: 'O seu novo jeito de morar começa aqui.',
+    tagline: 'A beleza do seu novo endereço em cada detalhe',
+    location: {
+      neighborhood: 'Bairro Novo Mundo',
+      city: 'Uberlândia - MG',
+      region: 'Zona Leste de Uberlândia',
+      addressDescription: 'Bairro Novo Mundo, Zona Leste - Uberlândia/MG',
+      accessStreets: [
+        'Avenida Yuri Resende Miranda (Acesso de Pedestres e Veículos)',
+        'Rua Aluísio Azevedo',
+        'Rua Alfredo Bosi',
+      ],
+    },
+    status: 'Lançamento',
+    heroImage: '/images/jardim-do-sol/fachada-principal.jpg',
+    galleryImages: [
+      '/images/jardim-do-sol/fachada-principal.jpg',
+    ],
+    shortDescription: 'Um condomínio moderno, seguro e com lazer completo para toda a família no Bairro Novo Mundo, Zona Leste de Uberlândia.',
+    fullDescription: 'O Park Jardim do Sol é o lançamento oficial da INC Empreendimentos no Bairro Novo Mundo (Zona Leste de Uberlândia). Um projeto inteligente que une torre moderna, edifício garagem, condomínio fechado com portaria/guarita e mais de 12 áreas de lazer e convivência equipadas para transformar a rotina da sua família.',
+    highlights: [
+      'Bairro Novo Mundo — Zona Leste de Uberlândia',
+      '4 opções de plantas inteligentes: 37,24m² a 41,20m²',
+      'Condomínio fechado com portaria/guarita e edifício garagem',
+      'Lazer completo com Piscina, Espaço Gourmet, Quadra de Areia e Espaço Conecta',
+      'Financiamento facilitado com Minha Casa Minha Vida / Caixa Econômica Federal',
+      'Padrão de qualidade INC Empreendimentos (15ª Maior Construtora do Brasil)',
+    ],
+    specs: [
+      { label: 'Localização Oficial', value: 'Bairro Novo Mundo', iconName: 'MapPin', confirmed: true },
+      { label: 'Cidade / Região', value: 'Uberlândia - MG (Zona Leste)', iconName: 'Compass', confirmed: true },
+      { label: 'Construtora / Incorporadora', value: 'INC Empreendimentos', iconName: 'Building2', confirmed: true },
+      { label: 'Programa de Financiamento', value: 'Minha Casa Minha Vida / Caixa', iconName: 'BadgeCheck', confirmed: true },
+      { label: 'Metragens das Plantas', value: '37,24m² a 41,20m²', iconName: 'Maximize2', confirmed: true },
+      { label: 'Configuração de Quartos', value: '1 e 2 Quartos (inclui PCD)', iconName: 'Layers', confirmed: true },
+      { label: 'Estacionamento', value: 'Edifício Garagem Integrado', iconName: 'Car', confirmed: true },
+      { label: 'Segurança & Portaria', value: 'Guarita com controle de acesso', iconName: 'ShieldCheck', confirmed: true },
+      { label: 'Áreas de Lazer e Convivência', value: '12+ Espaços Entregues', iconName: 'Sparkles', confirmed: true },
+      { label: 'Acessos Principais', value: 'Av. Yuri Resende Miranda', iconName: 'Navigation', confirmed: true },
+      { label: 'Stand de Vendas', value: 'Av. Floriano Peixoto, 1037 (Centro)', iconName: 'Store', confirmed: true },
+      { label: 'Status do Projeto', value: 'Lançamento Oficial INC', iconName: 'CheckCircle2', confirmed: true },
+    ],
+    floorPlans: [
+      {
+        id: 'planta-conforto',
+        name: 'Planta Conforto',
+        area: '41,20 m²',
+        bedrooms: '2 Quartos',
+        description: 'A maior metragem do empreendimento, projetada para quem busca o máximo de conforto, ventilação e integração entre os ambientes.',
+        highlights: [
+          '41,20 m² de área privativa',
+          '2 quartos com excelente distribuição e iluminação',
+          'Sala de estar e jantar em conceito aberto',
+          'Cozinha com área de serviço integrada',
+          'Banheiro social planejado',
+        ],
+        image: '/images/jardim-do-sol/plantas/planta-conforto-41-20m2.png',
+        badge: 'Mais Espaçosa',
+      },
+      {
+        id: 'planta-essencial',
+        name: 'Planta Essencial',
+        area: '39,02 m²',
+        bedrooms: '2 Quartos',
+        description: 'Equilíbrio perfeito entre metragem e praticidade, otimizando cada metro quadrado para o bem-estar da família.',
+        highlights: [
+          '39,02 m² de área privativa',
+          '2 dormitórios bem distribuídos',
+          'Living integrado para sala de estar e refeições',
+          'Cozinha funcional e área de serviço',
+          'Banheiro social de fácil acesso',
+        ],
+        image: '/images/jardim-do-sol/plantas/planta-essencial-39-02m2.png',
+        badge: 'Destaque',
+      },
+      {
+        id: 'planta-compacto',
+        name: 'Planta Compacto',
+        area: '37,98 m²',
+        bedrooms: '1 Quarto Ampliado',
+        description: 'Ideal para solteiros, jovens casais ou investidores que buscam funcionalidade inteligente com layout moderno.',
+        highlights: [
+          '37,98 m² de área privativa',
+          '1 quarto espaçoso e confortável',
+          'Ampla área social integrada',
+          'Cozinha moderna com lavanderia contígua',
+          'Praticidade para a rotina diária',
+        ],
+        image: '/images/jardim-do-sol/plantas/planta-compacto-37-98m2.png',
+        badge: 'Otimizada',
+      },
+      {
+        id: 'planta-compacto-pcd',
+        name: 'Planta Compacto PCD',
+        area: '37,24 m²',
+        bedrooms: '1 Quarto PCD Adaptado',
+        description: 'Planta 100% adaptada para pessoas com deficiência, com portas alargadas, raio de giro e banheiro totalmente acessível.',
+        highlights: [
+          '37,24 m² de área privativa adaptada',
+          'Banheiro dimensionado com barras e acessibilidade total',
+          'Circulação ampla para cadeira de rodas',
+          '1 dormitório com espaço planejado',
+          'Portas com largura acessível',
+        ],
+        image: '/images/jardim-do-sol/plantas/planta-compacto-pcd-37-24m2.png',
+        badge: '100% Acessível',
+      },
+    ],
+    leisureItems: [
+      {
+        id: 'piscina',
+        title: 'Piscina e Solarium',
+        tagline: 'Dias de descanso, refresco e lazer para todas as idades.',
+        category: 'esporte',
+        icon: 'Waves',
+        number: 18,
+      },
+      {
+        id: 'quadra-areia',
+        title: 'Quadra de Areia',
+        tagline: 'Um espaço ideal para esporte, convivência e qualidade de vida.',
+        category: 'esporte',
+        icon: 'Trophy',
+        number: 11,
+      },
+      {
+        id: 'espaco-gourmet',
+        title: 'Espaço Gourmet',
+        tagline: 'Sabores e encontros que tornam a vida mais leve.',
+        category: 'convivencia',
+        icon: 'Utensils',
+        number: 15,
+      },
+      {
+        id: 'parquinho',
+        title: 'Parquinho',
+        tagline: 'Diversão e segurança para os pequenos.',
+        category: 'familia',
+        icon: 'Smile',
+        number: 14,
+      },
+      {
+        id: 'parcao',
+        title: 'Parcão',
+        tagline: 'Um espaço pensado com carinho para o seu pet.',
+        category: 'familia',
+        icon: 'HeartHandshake',
+        number: 6,
+      },
+      {
+        id: 'piquenique-horta',
+        title: 'Piquenique, Horta e Pomar',
+        tagline: 'Momentos simples que viram memórias inesquecíveis ao ar livre.',
+        category: 'natureza',
+        icon: 'Trees',
+        number: 8,
+      },
+      {
+        id: 'espaco-fitness',
+        title: 'Espaço Fitness',
+        tagline: 'Energia, saúde e bem-estar ao seu alcance todos os dias.',
+        category: 'esporte',
+        icon: 'Dumbbell',
+        number: 12,
+      },
+      {
+        id: 'redario',
+        title: 'Redário',
+        tagline: 'Descanso e tranquilidade para desacelerar e aproveitar o seu tempo.',
+        category: 'natureza',
+        icon: 'Sun',
+        number: 7,
+      },
+      {
+        id: 'espaco-jogos',
+        title: 'Espaço de Jogos',
+        tagline: 'Diversão e convivência para aproveitar cada momento.',
+        category: 'convivencia',
+        icon: 'Gamepad2',
+        number: 13,
+      },
+      {
+        id: 'espaco-conecta',
+        title: 'Espaço Conecta',
+        tagline: 'Entretenimento e descontração para reunir e aproveitar juntos.',
+        category: 'convivencia',
+        icon: 'Tv',
+        number: 17,
+      },
+      {
+        id: 'bicicletario',
+        title: 'Bicicletário',
+        tagline: 'Praticidade e mobilidade para o seu dia a dia.',
+        category: 'esporte',
+        icon: 'Bike',
+        number: 1,
+      },
+      {
+        id: 'cinema-ar-livre',
+        title: 'Cinema ao Ar Livre',
+        tagline: 'Sessões e encontros sob as estrelas na comodidade do condomínio.',
+        category: 'convivencia',
+        icon: 'Film',
+        number: 9,
+      },
+    ],
+    landmarks: [
+      { name: 'Transporte Público', time: 'Em frente / Na região', type: 'transporte', confirmed: true },
+      { name: 'Terminal Novo Mundo', time: '4 min', type: 'transporte', confirmed: true },
+      { name: 'Parque do Sabiá', time: '5 min', type: 'lazer', confirmed: true },
+      { name: 'Escola Municipal', time: '5 min', type: 'educacao', confirmed: true },
+      { name: 'Supermercado Bahamas', time: '7 min', type: 'comercio', confirmed: true },
+      { name: 'Aeroporto de Uberlândia', time: '10 min', type: 'aeroporto', confirmed: true },
+      { name: 'Escola Estadual', time: '15 min', type: 'educacao', confirmed: true },
+      { name: 'Center Shopping', time: '15 min', type: 'comercio', confirmed: true },
+      { name: 'Av. João Naves de Ávila', time: 'Próximo', type: 'transporte', confirmed: true },
+      { name: 'Bairro Santa Mônica', time: 'Próximo', type: 'transporte', confirmed: true },
+    ],
+    featuresPrepared: [
+      'Apresentação oficial do projeto e book comercial',
+      'Plantas baixas completas com cotas e especificações',
+      'Detalhamento das 12 áreas de lazer e convivência',
+      'Mapa de implantação com os 22 itens do condomínio',
+      'Simulação de financiamento Caixa / Minha Casa Minha Vida',
+      'Tabela de valores e fluxo de entrada personalizado com Wesley',
+    ],
+    ctaText: 'Quero conhecer o Park Jardim do Sol',
+  },
+  'park-espanha': {
+    id: 'park-espanha',
+    name: 'Park Espanha',
+    subtitle: 'Qualidade de vida e convivência no Jardim Espanha',
+    tagline: 'PROJETADO PARA VALORIZAR O SEU BEM-ESTAR • ZONA SUL',
+    location: {
+      neighborhood: 'Jardim Espanha',
+      city: 'Uberlândia-MG',
+      region: 'Zona Sul de Uberlândia',
+      addressDescription: 'Jardim Espanha, Zona Sul de Uberlândia - MG',
+    },
+    status: 'Lançamento',
+    heroImage: '/images/park-espanha/fachada-principal.jpg',
+    galleryImages: [
+      '/images/park-espanha/fachada-principal.jpg',
+    ],
+    shortDescription: 'Localizado no Jardim Espanha, na Zona Sul de Uberlândia, o Park Espanha foi projetado para valorizar a qualidade de vida e a interação entre os moradores, com ambientes funcionais e acolhedores.',
+    fullDescription: 'Localizado no Jardim Espanha, na Zona Sul de Uberlândia, o Park Espanha foi projetado para valorizar a qualidade de vida e a interação entre os moradores, com ambientes funcionais e acolhedores.',
+    highlights: [
+      'Localização nobre no Jardim Espanha (Zona Sul)',
+      'Mais de 25 itens de lazer e infraestrutura completa',
+      'Projetado para valorizar a convivência e bem-estar',
+      'Ambientes funcionais, acolhedores e inteligentes',
+    ],
+    specs: [
+      { label: 'Empreendimento', value: 'Park Espanha', confirmed: true },
+      { label: 'Localização', value: 'Jardim Espanha (Zona Sul)', confirmed: true },
+      { label: 'Cidade / UF', value: 'Uberlândia - MG', confirmed: true },
+      { label: 'Realização', value: 'INC Empreendimentos', confirmed: true },
+      { label: 'Fase Atual', value: 'Lançamento', confirmed: true },
+      { label: 'Tipologias de Planta', value: 'Planta Canto e Planta Meio', confirmed: true },
+      { label: 'Lazer & Convivência', value: 'Complexo com +25 itens equipados', confirmed: true },
+      { label: 'Segurança & Tecnologia', value: 'Câmeras, cerca elétrica e cancela', confirmed: true },
+    ],
+    landmarks: [
+      { name: 'Padaria', time: '4 min', type: 'comercio', confirmed: true },
+      { name: 'Restaurante', time: '5 min', type: 'comercio', confirmed: true },
+      { name: 'Academia', time: '5 min', type: 'lazer', confirmed: true },
+      { name: 'Supermercado', time: '5 min', type: 'comercio', confirmed: true },
+      { name: 'Medical Center (UMC)', time: '6 min', type: 'transporte', confirmed: true },
+      { name: 'Uberlândia Shopping', time: '7 min', type: 'comercio', confirmed: true },
+      { name: 'UNITRI', time: '7 min', type: 'educacao', confirmed: true },
+      { name: 'BR-050', time: '8 min', type: 'transporte', confirmed: true },
+      { name: 'Escola', time: '8 min', type: 'educacao', confirmed: true },
+      { name: 'Center Shopping', time: '17 min', type: 'comercio', confirmed: true },
+    ],
+    floorPlans: [
+      {
+        id: 'planta-tipo-canto',
+        name: 'Planta Tipo Canto',
+        area: 'Consulte projeto',
+        bedrooms: 'Consulte projeto',
+        description: 'Disposição inteligente aproveitando a iluminação natural e ventilação da unidade de canto.',
+        highlights: [
+          'Unidade de canto com ventilação privilegiada',
+          'Integração de ambientes de estar e jantar',
+          'Ponto para instalação de ar-condicionado',
+          'Espaço planejado para máximo conforto',
+        ],
+        image: '/images/park-espanha/plantas/planta-tipo-canto.png',
+        badge: 'Tipo Canto',
+      },
+      {
+        id: 'planta-tipo-meio',
+        name: 'Planta Tipo Meio',
+        area: 'Consulte projeto',
+        bedrooms: 'Consulte projeto',
+        description: 'Planta otimizada e funcional, projetada para proporcionar praticidade e acolhimento no dia a dia.',
+        highlights: [
+          'Layout moderno e funcional',
+          'Aproveitamento inteligente de cada metro quadrado',
+          'Ponto para instalação de ar-condicionado',
+          'Ambientes aconchegantes e bem dimensionados',
+        ],
+        image: '/images/park-espanha/plantas/planta-tipo-meio.png',
+        badge: 'Tipo Meio',
+      },
+    ],
+    leisureItems: [
+      { id: 'piscina-adulto', title: 'Piscina Adulto', tagline: 'Para relaxar e se refrescar com privacidade', category: 'esporte', icon: 'Waves' },
+      { id: 'piscina-infantil', title: 'Piscina Infantil', tagline: 'Diversão com segurança para os pequenos', category: 'familia', icon: 'Sun' },
+      { id: 'espaco-gourmet', title: 'Espaço Gourmet', tagline: 'Para reunir amigos e celebrar momentos especiais', category: 'convivencia', icon: 'Utensils' },
+      { id: 'playground', title: 'Playground', tagline: 'Área ao ar livre para as crianças brincarem', category: 'familia', icon: 'Smile' },
+      { id: 'brinquedoteca', title: 'Brinquedoteca', tagline: 'Espaço lúdico, protegido e acolhedor', category: 'familia', icon: 'Smile' },
+      { id: 'academia-musculacao', title: 'Academia de Musculação', tagline: 'Equipamentos modernos para seu treino', category: 'esporte', icon: 'Dumbbell' },
+      { id: 'academia-aerobico', title: 'Academia de Aeróbico', tagline: 'Espaço cardio dedicado à saúde e condicionamento', category: 'esporte', icon: 'Dumbbell' },
+      { id: 'pista-cooper', title: 'Pista de Cooper', tagline: 'Para suas caminhadas e corridas diárias', category: 'esporte', icon: 'Bike' },
+      { id: 'beach-tennis', title: 'Quadra de Beach Tennis', tagline: 'O esporte do momento no seu condomínio', category: 'esporte', icon: 'Trophy' },
+      { id: 'game-cinema', title: 'Espaço Game + Cinema', tagline: 'Entretenimento, jogos e sessões de filmes', category: 'convivencia', icon: 'Gamepad2' },
+      { id: 'salao-festas', title: 'Salão de Festas', tagline: 'Ambiente decorado para suas maiores comemorações', category: 'convivencia', icon: 'HeartHandshake' },
+      { id: 'espaco-zen', title: 'Espaço Zen', tagline: 'Paz, meditação e contato com a tranquilidade', category: 'natureza', icon: 'Trees' },
+      { id: 'coworking', title: 'Coworking', tagline: 'Estrutura profissional para trabalho e estudos', category: 'convivencia', icon: 'Building2' },
+      { id: 'pet-place', title: 'Pet Place', tagline: 'Área livre e segura para seu pet brincar', category: 'familia', icon: 'Smile' },
+      { id: 'pet-care', title: 'Pet Care', tagline: 'Espaço exclusivo para higiene e cuidados do pet', category: 'familia', icon: 'Smile' },
+      { id: 'lavanderia', title: 'Lavanderia Coletiva', tagline: 'Praticidade e economia para o seu dia a dia', category: 'convivencia', icon: 'Building2' },
+      { id: 'home-market', title: 'Home Market', tagline: 'Conveniência de compras a poucos passos', category: 'convivencia', icon: 'Utensils' },
+      { id: 'mini-market', title: 'Mini Market', tagline: 'Facilidade para compras rápidas no condomínio', category: 'convivencia', icon: 'Utensils' },
+      { id: 'horta', title: 'Horta Comunitária', tagline: 'Temperos frescos e sustentabilidade no condomínio', category: 'natureza', icon: 'Trees' },
+      { id: 'praca', title: 'Praça de Convivência', tagline: 'Ponto de encontro arborizado e acolhedor', category: 'natureza', icon: 'Trees' },
+    ],
+    featuresPrepared: [
+      'Fotos oficiais da fachada e áreas externas',
+      'Plantas técnicas (Tipo Canto e Tipo Meio)',
+      'Itens de lazer e comodidades exclusivas',
+      'Diferenciais construtivos da INC',
+      'Análise de viabilidade e simulação imediata',
+    ],
+    ctaText: 'Quero conhecer o Park Espanha',
+  },
+};
+
+// 6. PERGUNTAS FREQUENTES (FAQ)
+export const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: 'Como funciona a simulação com o Wesley?',
+    answer: 'A simulação é gratuita e personalizada. O Wesley analisa o seu perfil financeiro, sua renda mensal, uso do FGTS e possibilidades de financiamento para apresentar os valores reais de entrada e parcelas que se encaixam no seu orçamento.',
+    category: 'Simulação',
+  },
+  {
+    question: 'Preciso ter FGTS para comprar um imóvel na INC?',
+    answer: 'Não é obrigatório possuir FGTS. No entanto, se você possuir saldo disponível no FGTS, ele pode ser utilizado para compor a entrada ou amortizar o valor total do imóvel conforme as regras dos programas habitacionais.',
+    category: 'Financeiro',
+  },
+  {
+    question: 'Como funciona a análise de crédito imobiliário?',
+    answer: 'O processo é rápido e seguro. Com alguns documentos básicos de identificação e comprovação de renda, o Wesley faz a submissão para análise nos principais bancos parceiros, identificando as melhores taxas de juros do mercado.',
+    category: 'Crédito',
+  },
+  {
+    question: 'Posso conhecer os dois empreendimentos (Jardim do Sol e Park Espanha)?',
+    answer: 'Com certeza! Você pode solicitar uma apresentação completa de ambos os projetos para comparar localização, metragens, diferenciais e valores, escolhendo aquele que melhor atende aos seus objetivos.',
+    category: 'Empreendimentos',
+  },
+  {
+    question: 'Como faço para falar diretamente com o Wesley?',
+    answer: 'Você pode clicar em qualquer botão "Falar com Wesley" pelo site para abrir uma conversa direta no WhatsApp, ou preencher o formulário de interesse para que ele entre em contato no seu melhor horário.',
+    category: 'Atendimento',
+  },
+];
+
+// 7. GERADOR DE LINK PARA WHATSAPP
+export function getWhatsAppLink(customMessage?: string): string {
+  const message = customMessage || CONSULTANT_CONFIG.whatsappDefaultMessage;
+  const encoded = encodeURIComponent(message);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+}
