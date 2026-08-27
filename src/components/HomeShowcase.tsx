@@ -1,9 +1,9 @@
 import React from 'react';
-import { MapPin, ArrowRight, ShieldCheck, MessageSquare, Phone } from 'lucide-react';
+import { MapPin, ArrowRight, ShieldCheck, MessageSquare } from 'lucide-react';
 import { getWhatsAppLink } from '../data/config';
 
 interface HomeShowcaseProps {
-  onSelectDevelopment: (id: 'park-espanha' | 'jardim-do-sol') => void;
+  onSelectDevelopment: (id: 'park-espanha' | 'jardim-do-sol' | 'unique-novo-mundo') => void;
 }
 
 export const HomeShowcase: React.FC<HomeShowcaseProps> = ({
@@ -15,13 +15,20 @@ export const HomeShowcase: React.FC<HomeShowcaseProps> = ({
       name: 'PARK ESPANHA',
       location: 'Zona Sul — Uberlândia',
       image: '/images/park-espanha/fachada-principal.jpg',
-      badge: 'Lançamento',
+      badge: 'ENTREGA EM 2027',
     },
     {
       id: 'jardim-do-sol' as const,
       name: 'PARK JARDIM DO SOL',
       location: 'Novo Mundo — Uberlândia',
       image: '/images/jardim-do-sol/fachada-principal.jpg',
+      badge: 'Lançamento',
+    },
+    {
+      id: 'unique-novo-mundo' as const,
+      name: 'UNIQUE NOVO MUNDO',
+      location: 'Novo Mundo — Uberlândia',
+      image: '/images/unique-novo-mundo/fachada-principal.jpg',
       badge: 'Lançamento',
     },
   ];
@@ -112,8 +119,8 @@ export const HomeShowcase: React.FC<HomeShowcaseProps> = ({
               </h2>
             </div>
 
-            {/* Grid dos 2 Cards Compactos */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+            {/* Grid dos Cards Compactos */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-3">
               {developments.map((dev) => (
                 <div
                   key={dev.id}
@@ -123,7 +130,7 @@ export const HomeShowcase: React.FC<HomeShowcaseProps> = ({
                 >
                   <div>
                     {/* Imagem Compacta */}
-                    <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-[#0A0D14]">
+                    <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-[#0A0D14]">
                       <img
                         src={dev.image}
                         alt={dev.name}
@@ -141,30 +148,30 @@ export const HomeShowcase: React.FC<HomeShowcaseProps> = ({
                     </div>
 
                     {/* Informações Resumidas */}
-                    <div className="p-3.5 sm:p-4">
-                      <h3 className="text-base sm:text-lg font-black text-white font-display group-hover:text-[#FF8540] transition-colors mb-0.5">
+                    <div className="p-3">
+                      <h3 className="text-sm sm:text-base font-black text-white font-display group-hover:text-[#FF8540] transition-colors mb-0.5 line-clamp-1">
                         {dev.name}
                       </h3>
 
                       <div className="flex items-center gap-1 text-xs text-neutral-300 font-medium">
                         <MapPin className="w-3 h-3 text-[#FF600B] shrink-0" />
-                        <span>{dev.location}</span>
+                        <span className="truncate">{dev.location}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Botão de Ação */}
-                  <div className="p-3.5 sm:p-4 pt-0">
+                  <div className="p-3 pt-0">
                     <button
                       id={`btn-explore-${dev.id}`}
                       onClick={(e) => {
                         e.stopPropagation();
                         onSelectDevelopment(dev.id);
                       }}
-                      className="w-full group/btn flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg font-bold text-xs text-white bg-[#FF600B] hover:bg-[#E05005] shadow-md shadow-[#FF600B]/20 transition-all cursor-pointer"
+                      className="w-full group/btn flex items-center justify-center gap-1 py-1.5 px-2.5 rounded-lg font-bold text-[11px] text-white bg-[#FF600B] hover:bg-[#E05005] shadow-md shadow-[#FF600B]/20 transition-all cursor-pointer"
                     >
-                      <span>Conhecer empreendimento</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                      <span>Conhecer</span>
+                      <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform" />
                     </button>
                   </div>
                 </div>

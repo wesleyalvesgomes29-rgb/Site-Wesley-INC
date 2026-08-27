@@ -1,17 +1,16 @@
 import React from 'react';
-import { DEVELOPMENTS, getWhatsAppLink } from '../data/config';
+import { DEVELOPMENTS } from '../data/config';
 import { ParkJardimDoSolSection } from './ParkJardimDoSolSection';
 import { ParkEspanhaSection } from './ParkEspanhaSection';
+import { UniqueNovoMundoSection } from './UniqueNovoMundoSection';
 import { SimulatorSection } from './SimulatorSection';
 import { LeadForm } from './LeadForm';
 import { FaqSection } from './FaqSection';
 import { 
   ArrowLeft, 
   Building2, 
-  MapPin, 
   Sparkles, 
   Layers, 
-  MessageSquare,
   ChevronRight,
   Info,
   Compass,
@@ -19,9 +18,9 @@ import {
 } from 'lucide-react';
 
 interface DevelopmentDetailPageProps {
-  developmentId: 'jardim-do-sol' | 'park-espanha';
+  developmentId: 'jardim-do-sol' | 'park-espanha' | 'unique-novo-mundo';
   onNavigateToHome: () => void;
-  onNavigateToDevelopment: (id: 'jardim-do-sol' | 'park-espanha') => void;
+  onNavigateToDevelopment: (id: 'jardim-do-sol' | 'park-espanha' | 'unique-novo-mundo') => void;
 }
 
 export const DevelopmentDetailPage: React.FC<DevelopmentDetailPageProps> = ({
@@ -30,19 +29,32 @@ export const DevelopmentDetailPage: React.FC<DevelopmentDetailPageProps> = ({
   onNavigateToDevelopment,
 }) => {
   const currentDev = DEVELOPMENTS[developmentId] || DEVELOPMENTS['jardim-do-sol'];
-  const otherDevId = developmentId === 'jardim-do-sol' ? 'park-espanha' : 'jardim-do-sol';
-  const otherDev = DEVELOPMENTS[otherDevId];
+  
+  const allDevIds: Array<'jardim-do-sol' | 'park-espanha' | 'unique-novo-mundo'> = [
+    'jardim-do-sol', 
+    'park-espanha', 
+    'unique-novo-mundo'
+  ];
+  const otherDevs = allDevIds
+    .filter((id) => id !== developmentId)
+    .map((id) => DEVELOPMENTS[id]);
 
   const scrollToAnchor = (anchorType: 'sobre' | 'lazer' | 'plantas' | 'localizacao' | 'contato') => {
     let targetId = '';
     if (anchorType === 'sobre') {
-      targetId = developmentId === 'jardim-do-sol' ? 'jardim-do-sol' : 'park-espanha';
+      targetId = developmentId;
     } else if (anchorType === 'lazer') {
-      targetId = developmentId === 'jardim-do-sol' ? 'lazer-jardim-sol' : 'lazer-park-espanha';
+      if (developmentId === 'jardim-do-sol') targetId = 'lazer-jardim-sol';
+      else if (developmentId === 'park-espanha') targetId = 'lazer-park-espanha';
+      else targetId = 'lazer-unique-novo-mundo';
     } else if (anchorType === 'plantas') {
-      targetId = developmentId === 'jardim-do-sol' ? 'plantas-jardim-sol' : 'plantas-park-espanha';
+      if (developmentId === 'jardim-do-sol') targetId = 'plantas-jardim-sol';
+      else if (developmentId === 'park-espanha') targetId = 'plantas-park-espanha';
+      else targetId = 'plantas-unique-novo-mundo';
     } else if (anchorType === 'localizacao') {
-      targetId = developmentId === 'jardim-do-sol' ? 'localizacao-jardim-sol' : 'localizacao-park-espanha';
+      if (developmentId === 'jardim-do-sol') targetId = 'localizacao-jardim-sol';
+      else if (developmentId === 'park-espanha') targetId = 'localizacao-park-espanha';
+      else targetId = 'localizacao-unique-novo-mundo';
     } else if (anchorType === 'contato') {
       targetId = 'contato-detalhe';
     }
@@ -58,16 +70,6 @@ export const DevelopmentDetailPage: React.FC<DevelopmentDetailPageProps> = ({
 
   const handleOpenLeadForm = (targetName: string) => {
     scrollToAnchor('contato');
-  };
-
-  const handleScrollToSimulator = () => {
-    const el = document.getElementById('simulador-detalhe');
-    if (el) {
-      const navOffset = 135;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    }
   };
 
   const anchorItems: Array<{ id: 'sobre' | 'lazer' | 'plantas' | 'localizacao' | 'contato'; label: string; icon: React.ReactNode }> = [
@@ -118,17 +120,20 @@ export const DevelopmentDetailPage: React.FC<DevelopmentDetailPageProps> = ({
             ))}
           </div>
 
-          {/* Quick Switch to other development */}
+          {/* Quick Switch to other developments */}
           <div className="hidden lg:flex items-center gap-2">
             <span className="text-xs text-neutral-400">Ver também:</span>
-            <button
-              id={`btn-switch-to-${otherDevId}`}
-              onClick={() => onNavigateToDevelopment(otherDevId)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 text-xs font-medium transition-all cursor-pointer"
-            >
-              <span>{otherDev.name}</span>
-              <ChevronRight className="w-3.5 h-3.5 text-[#FF600B]" />
-            </button>
+            {otherDevs.map((otherDev) => (
+              <button
+                key={otherDev.id}
+                id={`btn-switch-to-${otherDev.id}`}
+                onClick={() => onNavigateToDevelopment(otherDev.id)}
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 text-xs font-medium transition-all cursor-pointer"
+              >
+                <span>{otherDev.name}</span>
+                <ChevronRight className="w-3 h-3 text-[#FF600B]" />
+              </button>
+            ))}
           </div>
 
         </div>
@@ -138,8 +143,10 @@ export const DevelopmentDetailPage: React.FC<DevelopmentDetailPageProps> = ({
       <div className="flex-1">
         {developmentId === 'jardim-do-sol' ? (
           <ParkJardimDoSolSection onOpenLeadForm={handleOpenLeadForm} />
-        ) : (
+        ) : developmentId === 'park-espanha' ? (
           <ParkEspanhaSection onOpenLeadForm={handleOpenLeadForm} />
+        ) : (
+          <UniqueNovoMundoSection onOpenLeadForm={handleOpenLeadForm} />
         )}
 
         {/* Dedicated Contextualized Simulator Section */}

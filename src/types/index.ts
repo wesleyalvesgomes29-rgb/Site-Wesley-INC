@@ -27,7 +27,7 @@ export interface LocationLandmark {
 }
 
 export interface DevelopmentInfo {
-  id: 'jardim-do-sol' | 'park-espanha';
+  id: 'jardim-do-sol' | 'park-espanha' | 'unique-novo-mundo';
   name: string;
   subtitle: string;
   tagline: string;
@@ -75,7 +75,7 @@ export interface LeadFormData {
   name: string;
   whatsapp: string;
   city: string;
-  developmentInterest: 'Park Jardim do Sol' | 'Park Espanha' | 'Ainda não sei';
+  developmentInterest: 'Park Jardim do Sol' | 'Park Espanha' | 'Unique Novo Mundo' | 'Ainda não sei';
   monthlyIncome: string;
   hasFgts: 'Sim' | 'Não' | 'Não tenho certeza';
   message: string;

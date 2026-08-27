@@ -30,6 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'Empreendimentos', type: 'section', sectionId: 'empreendimentos' },
     { label: 'Park Jardim do Sol', type: 'route', path: '/empreendimentos/jardim-do-sol' },
     { label: 'Park Espanha', type: 'route', path: '/empreendimentos/park-espanha' },
+    { label: 'Unique Novo Mundo', type: 'route', path: '/empreendimentos/unique-novo-mundo' },
     { label: 'Contato', type: 'section', sectionId: 'contato' },
   ];
 

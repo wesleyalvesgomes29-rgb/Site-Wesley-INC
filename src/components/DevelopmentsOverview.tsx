@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, ArrowRight } from 'lucide-react';
 
 interface DevelopmentsOverviewProps {
-  onSelectDevelopment: (id: 'park-espanha' | 'jardim-do-sol') => void;
+  onSelectDevelopment: (id: 'park-espanha' | 'jardim-do-sol' | 'unique-novo-mundo') => void;
 }
 
 export const DevelopmentsOverview: React.FC<DevelopmentsOverviewProps> = ({
@@ -14,13 +14,20 @@ export const DevelopmentsOverview: React.FC<DevelopmentsOverviewProps> = ({
       name: 'PARK ESPANHA',
       location: 'Zona Sul — Uberlândia',
       image: '/images/park-espanha/fachada-principal.jpg',
-      badge: 'Lançamento',
+      badge: 'ENTREGA EM 2027',
     },
     {
       id: 'jardim-do-sol' as const,
       name: 'PARK JARDIM DO SOL',
       location: 'Novo Mundo — Uberlândia',
       image: '/images/jardim-do-sol/fachada-principal.jpg',
+      badge: 'Lançamento',
+    },
+    {
+      id: 'unique-novo-mundo' as const,
+      name: 'UNIQUE NOVO MUNDO',
+      location: 'Novo Mundo — Uberlândia',
+      image: '/images/unique-novo-mundo/fachada-principal.jpg',
       badge: 'Lançamento',
     },
   ];
@@ -30,7 +37,7 @@ export const DevelopmentsOverview: React.FC<DevelopmentsOverviewProps> = ({
       id="empreendimentos"
       className="py-10 sm:py-14 bg-[#090B0E]"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         
         {/* Section Title */}
         <div className="text-center mb-8 sm:mb-10">
@@ -42,8 +49,8 @@ export const DevelopmentsOverview: React.FC<DevelopmentsOverviewProps> = ({
           </p>
         </div>
 
-        {/* Compact Cards Grid (2 side by side on desktop, stacked on mobile) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+        {/* Compact Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {developments.map((dev) => (
             <div
               key={dev.id}
@@ -62,17 +69,17 @@ export const DevelopmentsOverview: React.FC<DevelopmentsOverviewProps> = ({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#131722] via-transparent to-black/20" />
                   
-                  {/* Subtle Badge */}
+                  {/* Discrete Badge */}
                   <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#FF600B] text-white text-[11px] font-bold uppercase tracking-wider shadow-md">
+                    <span className="px-2.5 py-1 rounded-full bg-[#FF600B] text-white text-[10px] font-bold uppercase tracking-wider shadow-md">
                       {dev.badge}
                     </span>
                   </div>
                 </div>
 
-                {/* Information */}
+                {/* Info */}
                 <div className="p-4 sm:p-5">
-                  <h3 className="text-lg sm:text-xl font-black text-white font-display group-hover:text-[#FF8540] transition-colors mb-1">
+                  <h3 className="text-lg font-black text-white font-display group-hover:text-[#FF8540] transition-colors mb-1">
                     {dev.name}
                   </h3>
 
@@ -91,10 +98,10 @@ export const DevelopmentsOverview: React.FC<DevelopmentsOverviewProps> = ({
                     e.stopPropagation();
                     onSelectDevelopment(dev.id);
                   }}
-                  className="w-full group/btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-md shadow-[#FF600B]/20 transition-all cursor-pointer"
+                  className="w-full group/btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-[#FF600B] hover:bg-[#E05005] shadow-md shadow-[#FF600B]/20 transition-all cursor-pointer"
                 >
                   <span>Conhecer empreendimento</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>

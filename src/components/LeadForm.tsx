@@ -193,7 +193,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({ initialDevelopment = 'Park J
                     className="w-full bg-[#181E2B] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-[#FF600B] transition-colors"
                   >
                     <option value="Park Jardim do Sol">Park Jardim do Sol (Novo Mundo - Zona Leste)</option>
-                    <option value="Park Espanha">Park Espanha</option>
+                    <option value="Park Espanha">Park Espanha (Jardim Espanha - Zona Sul)</option>
+                    <option value="Unique Novo Mundo">Unique Novo Mundo (Novo Mundo - Zona Leste)</option>
                     <option value="Ainda não sei">Ainda não sei (Quero orientação)</option>
                   </select>
                 </div>

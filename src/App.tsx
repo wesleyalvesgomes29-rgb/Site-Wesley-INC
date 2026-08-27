@@ -16,6 +16,7 @@ export default function App() {
       const pathname = window.location.pathname;
       if (pathname.includes('jardim-do-sol')) return '/empreendimentos/jardim-do-sol';
       if (pathname.includes('park-espanha')) return '/empreendimentos/park-espanha';
+      if (pathname.includes('unique-novo-mundo')) return '/empreendimentos/unique-novo-mundo';
       return '/';
     }
     return '/';
@@ -29,6 +30,8 @@ export default function App() {
         setCurrentPath('/empreendimentos/jardim-do-sol');
       } else if (pathname.includes('park-espanha')) {
         setCurrentPath('/empreendimentos/park-espanha');
+      } else if (pathname.includes('unique-novo-mundo')) {
+        setCurrentPath('/empreendimentos/unique-novo-mundo');
       } else {
         setCurrentPath('/');
       }
@@ -106,6 +109,13 @@ export default function App() {
           /* Individual Page: Park Espanha */
           <DevelopmentDetailPage
             developmentId="park-espanha"
+            onNavigateToHome={() => navigateToPath('/')}
+            onNavigateToDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
+          />
+        ) : currentPath === '/empreendimentos/unique-novo-mundo' ? (
+          /* Individual Page: Unique Novo Mundo */
+          <DevelopmentDetailPage
+            developmentId="unique-novo-mundo"
             onNavigateToHome={() => navigateToPath('/')}
             onNavigateToDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
           />

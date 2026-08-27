@@ -88,6 +88,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToPath, onNavigateToSe
               </li>
               <li>
                 <button
+                  onClick={() => onNavigateToPath('/empreendimentos/unique-novo-mundo')}
+                  className="hover:text-[#FF8540] transition-colors cursor-pointer text-left"
+                >
+                  Unique Novo Mundo (Novo Mundo)
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => {
                     onNavigateToPath('/');
                     setTimeout(() => onNavigateToSection('empreendimentos'), 100);
