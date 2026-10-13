@@ -82,25 +82,24 @@ export const ParkJardimDoSolLeisure: React.FC<ParkJardimDoSolLeisureProps> = ({
     : leisureItems.filter(item => item.category === filterCategory);
 
   return (
-    <div className="mt-16 pt-12 border-t border-white/10" id="lazer-jardim-sol">
+    <div className="mt-8 pt-7 border-t border-white/10" id="lazer-jardim-sol">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF600B]/10 border border-[#FF600B]/30 text-xs font-bold text-[#FF8540] mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF600B]/10 border border-[#FF600B]/30 text-xs font-bold text-[#FF8540] mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>LAZER & ÁREAS COMUNS CONFIRMADAS</span>
           </div>
-          <h3 className="text-2xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">
             Um projeto pensado para viver bem.
           </h3>
-          <p className="text-sm sm:text-base text-neutral-300 mt-2 max-w-2xl">
-            Um condomínio moderno, seguro e com lazer completo para toda a família. 
-            Mais de 12 espaços entregues equipados e decorados pela INC.
+          <p className="text-sm text-neutral-300 mt-2 max-w-2xl">
+            Lazer para toda a família, com espaços de convivência, esporte e descanso. Mais de 12 ambientes equipados e decorados pela INC.
           </p>
         </div>
 
         {/* Filter categories */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           {[
             { id: 'todos', label: 'Todos os Espaços' },
             { id: 'esporte', label: 'Esporte & Saúde' },
@@ -111,7 +110,7 @@ export const ParkJardimDoSolLeisure: React.FC<ParkJardimDoSolLeisureProps> = ({
             <button
               key={tab.id}
               onClick={() => setFilterCategory(tab.id)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                 filterCategory === tab.id
                   ? 'bg-[#FF600B] text-white shadow-md'
                   : 'bg-[#121622] text-neutral-400 hover:text-neutral-200 border border-white/5'
@@ -124,15 +123,15 @@ export const ParkJardimDoSolLeisure: React.FC<ParkJardimDoSolLeisureProps> = ({
       </div>
 
       {/* Leisure Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
         {filteredItems.map((item) => (
           <div
             key={item.id}
-            className="group relative rounded-2xl bg-gradient-to-b from-[#151B29] to-[#0E121B] p-5 border border-white/10 hover:border-[#FF600B]/50 transition-all duration-300 shadow-xl flex flex-col justify-between"
+            className="group relative rounded-xl bg-gradient-to-b from-[#151B29] to-[#0E121B] p-3 sm:p-4 border border-white/10 hover:border-[#FF600B]/50 transition-all duration-300 shadow-xl flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#FF600B]/10 border border-[#FF600B]/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-8 h-8 rounded-lg bg-[#FF600B]/10 border border-[#FF600B]/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                   {getIcon(item.icon)}
                 </div>
                 {item.number && (
@@ -142,16 +141,16 @@ export const ParkJardimDoSolLeisure: React.FC<ParkJardimDoSolLeisureProps> = ({
                 )}
               </div>
 
-              <h4 className="font-bold text-base sm:text-lg text-white font-display group-hover:text-[#FF8540] transition-colors">
+              <h4 className="font-bold text-sm sm:text-base text-white font-display group-hover:text-[#FF8540] transition-colors">
                 {item.title}
               </h4>
 
-              <p className="text-xs text-neutral-300 mt-2 leading-relaxed italic">
+              <p className="text-xs text-neutral-300 mt-1.5 leading-snug italic">
                 "{item.tagline}"
               </p>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-neutral-400">
+            <div className="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-neutral-400">
               <span className="capitalize">{item.category}</span>
               <span className="text-[#FF8540] font-semibold">Oficial INC</span>
             </div>
@@ -160,8 +159,8 @@ export const ParkJardimDoSolLeisure: React.FC<ParkJardimDoSolLeisureProps> = ({
       </div>
 
       {/* Complete Implantation Accordion / Showcase (22 itens) */}
-      <div className="mt-10 rounded-3xl bg-[#111520] p-6 sm:p-8 border border-white/10 shadow-xl">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+      <div className="mt-6 rounded-2xl bg-[#111520] p-4 sm:p-5 border border-white/10 shadow-xl">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -183,8 +182,8 @@ export const ParkJardimDoSolLeisure: React.FC<ParkJardimDoSolLeisureProps> = ({
         </div>
 
         {/* 3 Access Gates Highlight */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
-          <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 flex items-center gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 my-4">
+          <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-[#FF600B]/15 flex items-center justify-center shrink-0">
               <span className="text-xs font-bold text-[#FF600B]">1</span>
             </div>
