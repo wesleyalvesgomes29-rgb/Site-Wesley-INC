@@ -16,7 +16,11 @@ import {
 } from 'lucide-react';
 import { DEVELOPMENTS, getWhatsAppLink } from '../../data/config';
 
-export const ParkEspanhaFloorPlans: React.FC = () => {
+interface ParkEspanhaFloorPlansProps {
+  onOpenLeadForm?: (devName: string) => void;
+}
+
+export const ParkEspanhaFloorPlans: React.FC<ParkEspanhaFloorPlansProps> = () => {
   const data = DEVELOPMENTS['park-espanha'];
   const floorPlans = data.floorPlans || [];
 
