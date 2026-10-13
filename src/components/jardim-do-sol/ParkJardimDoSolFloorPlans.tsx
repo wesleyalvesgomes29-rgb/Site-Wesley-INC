@@ -26,15 +26,15 @@ export const ParkJardimDoSolFloorPlans: React.FC<ParkJardimDoSolFloorPlansProps>
   const [selectedZoomPlan, setSelectedZoomPlan] = useState<typeof plans[0] | null>(null);
 
   return (
-    <div className="mt-16 pt-12 border-t border-white/10" id="plantas-jardim-sol">
+    <div className="mt-8 pt-7 border-t border-white/10" id="plantas-jardim-sol">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF600B]/10 border border-[#FF600B]/30 text-xs font-bold text-[#FF8540] mb-3">
             <Layers className="w-3.5 h-3.5" />
             <span>TIPOLOGIAS OFICIAIS INC</span>
           </div>
-          <h3 className="text-2xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">
             Plantas do Park Jardim do Sol
           </h3>
           <p className="text-sm sm:text-base text-neutral-300 mt-2 max-w-2xl font-sans">
@@ -50,15 +50,15 @@ export const ParkJardimDoSolFloorPlans: React.FC<ParkJardimDoSolFloorPlansProps>
       </div>
 
       {/* Grid com os 4 Cards Modernos e Organizados */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {plans.map((plan) => (
           <div
             key={plan.id}
             id={`card-${plan.id}`}
-            className="flex flex-col justify-between rounded-2xl bg-gradient-to-b from-[#161C2A] to-[#0F131D] border border-white/10 hover:border-[#FF600B]/50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-[#FF600B]/10 overflow-hidden group"
+            className="flex flex-col justify-between rounded-xl bg-gradient-to-b from-[#161C2A] to-[#0F131D] border border-white/10 hover:border-[#FF600B]/50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-[#FF600B]/10 overflow-hidden group"
           >
             {/* Card Top Info */}
-            <div className="p-5 pb-3">
+            <div className="p-4 pb-2">
               <div className="flex items-start justify-between gap-2 mb-2">
                 <span className="text-xl sm:text-2xl font-black font-mono text-[#FF8540] tracking-tight">
                   {plan.area}
@@ -110,7 +110,7 @@ export const ParkJardimDoSolFloorPlans: React.FC<ParkJardimDoSolFloorPlansProps>
             </div>
 
             {/* Descrição e Diferenciais */}
-            <div className="p-5 pt-3 flex-1 flex flex-col justify-between">
+            <div className="p-4 pt-2 flex-1 flex flex-col justify-between">
               <div>
                 <p className="text-xs text-neutral-300 leading-relaxed mb-4">
                   {plan.description}
@@ -127,7 +127,7 @@ export const ParkJardimDoSolFloorPlans: React.FC<ParkJardimDoSolFloorPlansProps>
               </div>
 
               {/* Botões de Ação do Card */}
-              <div className="mt-5 pt-4 border-t border-white/10 space-y-2">
+              <div className="mt-3 pt-3 border-t border-white/10 space-y-2">
                 <button
                   onClick={() => onOpenLeadForm(`Park Jardim do Sol - ${plan.name} (${plan.area})`)}
                   className="w-full flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl font-bold text-xs text-white bg-[#FF600B] hover:bg-[#E05005] shadow-md shadow-[#FF600B]/20 transition-all cursor-pointer border border-[#FFA066]/30 active:scale-95"
