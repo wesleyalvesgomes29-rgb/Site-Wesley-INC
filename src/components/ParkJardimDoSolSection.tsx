@@ -8,10 +8,6 @@ import {
   Info
 } from 'lucide-react';
 import { ParkJardimDoSolFloorPlans } from './jardim-do-sol/ParkJardimDoSolFloorPlans';
-import { ParkJardimDoSolLeisure } from './jardim-do-sol/ParkJardimDoSolLeisure';
-import { ParkJardimDoSolLocation } from './jardim-do-sol/ParkJardimDoSolLocation';
-import { ParkJardimDoSolDifferentials } from './jardim-do-sol/ParkJardimDoSolDifferentials';
-import { ParkJardimDoSolCta } from './jardim-do-sol/ParkJardimDoSolCta';
 
 interface ParkJardimDoSolSectionProps {
   onOpenLeadForm: (developmentName: string) => void;
@@ -154,17 +150,6 @@ export const ParkJardimDoSolSection: React.FC<ParkJardimDoSolSectionProps> = ({
         {/* 3. Plantas */}
         <ParkJardimDoSolFloorPlans onOpenLeadForm={onOpenLeadForm} />
 
-        {/* 4. Lazer */}
-        <ParkJardimDoSolLeisure onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 5. Localização */}
-        <ParkJardimDoSolLocation onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 6. Diferenciais */}
-        <ParkJardimDoSolDifferentials onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 7. CTA de Fechamento */}
-        <ParkJardimDoSolCta onOpenLeadForm={onOpenLeadForm} />
 
       </div>
     </section>
