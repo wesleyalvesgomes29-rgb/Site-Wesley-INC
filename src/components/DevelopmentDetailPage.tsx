@@ -3,6 +3,9 @@ import { DEVELOPMENTS } from '../data/config';
 import { ParkJardimDoSolSection } from './ParkJardimDoSolSection';
 import { ParkEspanhaSection } from './ParkEspanhaSection';
 import { UniqueNovoMundoSection } from './UniqueNovoMundoSection';
+import { SimulatorSection } from './SimulatorSection';
+import { LeadForm } from './LeadForm';
+import { FaqSection } from './FaqSection';
 import { 
   ArrowLeft, 
   Building2, 
