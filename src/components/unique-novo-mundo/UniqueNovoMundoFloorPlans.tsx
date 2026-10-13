@@ -12,7 +12,11 @@ import {
   Eye
 } from 'lucide-react';
 
-export const UniqueNovoMundoFloorPlans: React.FC = () => {
+interface UniqueNovoMundoFloorPlansProps {
+  onOpenLeadForm?: (devName: string) => void;
+}
+
+export const UniqueNovoMundoFloorPlans: React.FC<UniqueNovoMundoFloorPlansProps> = () => {
   const data = DEVELOPMENTS['unique-novo-mundo'];
   const plans = data.floorPlans || [];
   const [selectedZoomPlan, setSelectedZoomPlan] = useState<typeof plans[0] | null>(null);
