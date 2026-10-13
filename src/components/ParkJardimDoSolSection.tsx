@@ -157,6 +157,15 @@ export const ParkJardimDoSolSection: React.FC<ParkJardimDoSolSectionProps> = ({
         {/* 4. Lazer */}
         <ParkJardimDoSolLeisure onOpenLeadForm={onOpenLeadForm} />
 
+        {/* 5. Localização */}
+        <ParkJardimDoSolLocation onOpenLeadForm={onOpenLeadForm} />
+
+        {/* 6. Diferenciais */}
+        <ParkJardimDoSolDifferentials onOpenLeadForm={onOpenLeadForm} />
+
+        {/* 7. CTA de Fechamento */}
+        <ParkJardimDoSolCta onOpenLeadForm={onOpenLeadForm} />
+
       </div>
     </section>
   );
