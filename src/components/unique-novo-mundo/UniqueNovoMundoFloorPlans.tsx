@@ -3,7 +3,6 @@ import { DEVELOPMENTS, getWhatsAppLink } from '../../data/config';
 import { 
   Bed, 
   CheckCircle2, 
-  FileText, 
   MessageSquare,
   ZoomIn,
   X,
@@ -13,13 +12,7 @@ import {
   Eye
 } from 'lucide-react';
 
-interface UniqueNovoMundoFloorPlansProps {
-  onOpenLeadForm: (devName: string) => void;
-}
-
-export const UniqueNovoMundoFloorPlans: React.FC<UniqueNovoMundoFloorPlansProps> = ({
-  onOpenLeadForm,
-}) => {
+export const UniqueNovoMundoFloorPlans: React.FC = () => {
   const data = DEVELOPMENTS['unique-novo-mundo'];
   const plans = data.floorPlans || [];
   const [selectedZoomPlan, setSelectedZoomPlan] = useState<typeof plans[0] | null>(null);
@@ -136,14 +129,16 @@ export const UniqueNovoMundoFloorPlans: React.FC<UniqueNovoMundoFloorPlansProps>
                   <span>Ver Detalhes da Planta</span>
                 </button>
 
-                <button
+                <a
                   id={`btn-plan-interest-${plan.id}`}
-                  onClick={() => onOpenLeadForm(`Unique Novo Mundo - ${plan.name} (${plan.area})`)}
-                  className="w-full py-2.5 px-3 rounded-lg bg-[#FF600B] hover:bg-[#E05005] text-white font-bold text-xs shadow-md shadow-[#FF600B]/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                  href={getWhatsAppLink(`Olá Wesley! Tenho interesse na planta ${plan.name} (${plan.area}) do Unique Novo Mundo e gostaria de tirar algumas dúvidas.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-3 rounded-lg bg-[#181F2E] hover:bg-[#20293D] text-neutral-200 border border-white/10 hover:border-[#FF600B]/40 font-semibold text-xs transition-all flex items-center justify-center gap-1.5"
                 >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>Tenho interesse nesta planta</span>
-                </button>
+                  <MessageSquare className="w-3.5 h-3.5 text-[#FF600B]" />
+                  <span>Falar no WhatsApp</span>
+                </a>
               </div>
             </div>
 
@@ -216,17 +211,7 @@ export const UniqueNovoMundoFloorPlans: React.FC<UniqueNovoMundoFloorPlansProps>
                   <span>Dúvidas no WhatsApp</span>
                 </a>
 
-                <button
-                  id="btn-modal-simular"
-                  onClick={() => {
-                    setSelectedZoomPlan(null);
-                    onOpenLeadForm(`Unique Novo Mundo - ${selectedZoomPlan.name}`);
-                  }}
-                  className="flex-1 sm:flex-initial px-5 py-2.5 rounded-xl bg-[#FF600B] hover:bg-[#E05005] text-white font-bold text-xs shadow-lg shadow-[#FF600B]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Simular esta planta</span>
-                </button>
+
               </div>
             </div>
           </div>
