@@ -66,15 +66,6 @@ export const UniqueNovoMundoSection: React.FC<UniqueNovoMundoSectionProps> = ({
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
-              <button
-                id="btn-unique-cta"
-                onClick={() => onOpenLeadForm('Unique Novo Mundo')}
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/30 transition-all duration-200 cursor-pointer active:scale-95 border border-[#FFA066]/30"
-              >
-                <FileText className="w-4 h-4" />
-                <span>Receber apresentação oficial</span>
-              </button>
-
               <a
                 id="btn-unique-wpp"
                 href={getWhatsAppLink('Olá Wesley! Tenho interesse no Unique Novo Mundo (Bairro Novo Mundo). Poderia me passar a apresentação oficial?')}
