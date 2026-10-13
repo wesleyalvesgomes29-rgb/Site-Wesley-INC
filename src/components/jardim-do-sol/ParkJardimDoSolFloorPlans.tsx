@@ -4,7 +4,6 @@ import {
   Maximize2, 
   Bed, 
   CheckCircle2, 
-  FileText, 
   MessageSquare,
   ZoomIn,
   X,
@@ -18,9 +17,7 @@ interface ParkJardimDoSolFloorPlansProps {
   onOpenLeadForm: (devName: string) => void;
 }
 
-export const ParkJardimDoSolFloorPlans: React.FC<ParkJardimDoSolFloorPlansProps> = ({
-  onOpenLeadForm,
-}) => {
+export const ParkJardimDoSolFloorPlans: React.FC<ParkJardimDoSolFloorPlansProps> = () => {
   const data = DEVELOPMENTS['jardim-do-sol'];
   const plans = data.floorPlans || [];
   const [selectedZoomPlan, setSelectedZoomPlan] = useState<typeof plans[0] | null>(null);
@@ -128,16 +125,8 @@ export const ParkJardimDoSolFloorPlans: React.FC<ParkJardimDoSolFloorPlansProps>
 
               {/* Botões de Ação do Card */}
               <div className="mt-3 pt-3 border-t border-white/10 space-y-2">
-                <button
-                  onClick={() => onOpenLeadForm(`Park Jardim do Sol - ${plan.name} (${plan.area})`)}
-                  className="w-full flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl font-bold text-xs text-white bg-[#FF600B] hover:bg-[#E05005] shadow-md shadow-[#FF600B]/20 transition-all cursor-pointer border border-[#FFA066]/30 active:scale-95"
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>Simular {plan.name}</span>
-                </button>
-
                 <a
-                  href={getWhatsAppLink(`Olá Wesley! Gostei da ${plan.name} (${plan.area}) do Park Jardim do Sol e gostaria de simular os valores.`)}
+                  href={getWhatsAppLink(`Olá Wesley! Tenho interesse na planta ${plan.name} (${plan.area}) do Park Jardim do Sol e gostaria de tirar algumas dúvidas.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl font-semibold text-xs text-neutral-300 bg-white/[0.04] hover:bg-white/[0.08] hover:text-white border border-white/10 hover:border-[#FF600B]/30 transition-all text-center"
@@ -204,21 +193,8 @@ export const ParkJardimDoSolFloorPlans: React.FC<ParkJardimDoSolFloorPlansProps>
               </div>
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
-                <button
-                  onClick={() => {
-                    const planName = selectedZoomPlan.name;
-                    const planArea = selectedZoomPlan.area;
-                    setSelectedZoomPlan(null);
-                    onOpenLeadForm(`Park Jardim do Sol - ${planName} (${planArea})`);
-                  }}
-                  className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/20 transition-all cursor-pointer"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Simular Esta Planta</span>
-                </button>
-
                 <a
-                  href={getWhatsAppLink(`Olá Wesley! Estou vendo a ${selectedZoomPlan.name} (${selectedZoomPlan.area}) do Park Jardim do Sol e quero tirar dúvidas.`)}
+                  href={getWhatsAppLink(`Olá Wesley! Tenho interesse na planta ${selectedZoomPlan.name} (${selectedZoomPlan.area}) do Park Jardim do Sol e gostaria de tirar algumas dúvidas.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs text-white bg-[#161C2A] hover:bg-[#1E2536] border border-white/10 transition-all text-center"
