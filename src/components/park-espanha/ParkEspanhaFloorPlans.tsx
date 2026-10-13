@@ -6,7 +6,6 @@ import {
   Sparkles, 
   Layers, 
   MessageSquare, 
-  FileText, 
   X, 
   ZoomIn, 
   Info,
@@ -17,13 +16,7 @@ import {
 } from 'lucide-react';
 import { DEVELOPMENTS, getWhatsAppLink } from '../../data/config';
 
-interface ParkEspanhaFloorPlansProps {
-  onOpenLeadForm: (devName: string) => void;
-}
-
-export const ParkEspanhaFloorPlans: React.FC<ParkEspanhaFloorPlansProps> = ({
-  onOpenLeadForm,
-}) => {
+export const ParkEspanhaFloorPlans: React.FC = () => {
   const data = DEVELOPMENTS['park-espanha'];
   const floorPlans = data.floorPlans || [];
 
@@ -140,13 +133,16 @@ export const ParkEspanhaFloorPlans: React.FC<ParkEspanhaFloorPlansProps> = ({
 
               {/* Action Buttons for this Plan */}
               <div className="space-y-2.5 pt-5 border-t border-white/10 mt-4">
-                <button
-                  id={`btn-plan-${plan.id}-cta`}
-                  onClick={() => onOpenLeadForm(`Park Espanha - ${plan.name}`)}
-                  className="w-full py-3.5 px-5 rounded-xl font-bold text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/30 transition-all cursor-pointer text-center active:scale-98"
+                <a
+                  id={`btn-plan-${plan.id}-wpp`}
+                  href={getWhatsAppLink(`Olá Wesley! Gostaria de receber a planta e consultar disponibilidade da ${plan.name} do Park Espanha.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-neutral-200 bg-[#171E2D] hover:bg-[#20293D] border border-white/10 transition-all text-center flex items-center justify-center gap-2"
                 >
-                  Quero Simular com {plan.name}
-                </button>
+                  <MessageSquare className="w-3.5 h-3.5 text-[#FF600B]" />
+                  <span>Consultar Disponibilidade com Wesley</span>
+                </a>
 
                 <a
                   id={`btn-plan-${plan.id}-wpp`}
@@ -198,15 +194,7 @@ export const ParkEspanhaFloorPlans: React.FC<ParkEspanhaFloorPlansProps> = ({
 
             <div className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
               <span className="text-xs text-neutral-400">Consulte condições e disponibilidade com Wesley Alves.</span>
-              <button
-                onClick={() => {
-                  setModalPlan(null);
-                  onOpenLeadForm(`Park Espanha - ${modalPlan.name}`);
-                }}
-                className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-[#FF600B] hover:bg-[#E05005] transition-colors cursor-pointer"
-              >
-                Simular Financiamento com Wesley
-              </button>
+
             </div>
           </div>
         </div>
