@@ -8,10 +8,6 @@ import {
   Info
 } from 'lucide-react';
 import { UniqueNovoMundoFloorPlans } from './unique-novo-mundo/UniqueNovoMundoFloorPlans';
-import { UniqueNovoMundoLeisure } from './unique-novo-mundo/UniqueNovoMundoLeisure';
-import { UniqueNovoMundoLocation } from './unique-novo-mundo/UniqueNovoMundoLocation';
-import { UniqueNovoMundoDifferentials } from './unique-novo-mundo/UniqueNovoMundoDifferentials';
-import { UniqueNovoMundoCta } from './unique-novo-mundo/UniqueNovoMundoCta';
 
 interface UniqueNovoMundoSectionProps {
   onOpenLeadForm: (developmentName: string) => void;
@@ -26,7 +22,7 @@ export const UniqueNovoMundoSection: React.FC<UniqueNovoMundoSectionProps> = ({
   return (
     <section
       id="unique-novo-mundo"
-      className="relative py-16 sm:py-20 bg-gradient-to-b from-[#0A0C10] via-[#10141E] to-[#0A0C10] border-t border-white/5 overflow-hidden"
+      className="relative py-8 sm:py-10 bg-gradient-to-b from-[#0A0C10] via-[#10141E] to-[#0A0C10] border-t border-white/5 overflow-hidden"
     >
       {/* Background glow lines */}
       <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-[#FF600B]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -49,7 +45,7 @@ export const UniqueNovoMundoSection: React.FC<UniqueNovoMundoSectionProps> = ({
         </div>
 
         {/* 1. Hero Oficial: UNIQUE NOVO MUNDO */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center mb-7">
           
           <div className="lg:col-span-6 flex flex-col items-start">
             <div className="text-xs font-mono uppercase font-bold text-[#FF8540] tracking-widest mb-1.5">
@@ -98,7 +94,7 @@ export const UniqueNovoMundoSection: React.FC<UniqueNovoMundoSectionProps> = ({
               <img
                 src="/images/unique-novo-mundo/fachada-principal.jpg"
                 alt="Perspectiva da Fachada Oficial - Unique Novo Mundo"
-                className="w-full h-[280px] sm:h-[360px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-[240px] sm:h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
 
@@ -115,7 +111,7 @@ export const UniqueNovoMundoSection: React.FC<UniqueNovoMundoSectionProps> = ({
         </div>
 
         {/* 2. FICHA TÉCNICA */}
-        <div className="rounded-2xl bg-[#121622] p-5 sm:p-7 border border-white/10 shadow-lg mb-12">
+        <div className="rounded-2xl bg-[#121622] p-4 sm:p-5 border border-white/10 shadow-lg mb-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5 pb-3 border-b border-white/10">
             <div>
               <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#FF8540] mb-0.5">
@@ -134,7 +130,7 @@ export const UniqueNovoMundoSection: React.FC<UniqueNovoMundoSectionProps> = ({
           </div>
 
           {/* Specs Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
             {specsGrid.map((spec, index) => (
               <div
                 key={index}
@@ -154,17 +150,6 @@ export const UniqueNovoMundoSection: React.FC<UniqueNovoMundoSectionProps> = ({
         {/* 3. Plantas */}
         <UniqueNovoMundoFloorPlans onOpenLeadForm={onOpenLeadForm} />
 
-        {/* 4. Lazer */}
-        <UniqueNovoMundoLeisure onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 5. Localização */}
-        <UniqueNovoMundoLocation onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 6. Diferenciais */}
-        <UniqueNovoMundoDifferentials onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 7. CTA de Fechamento */}
-        <UniqueNovoMundoCta onOpenLeadForm={onOpenLeadForm} />
 
       </div>
     </section>
