@@ -3,9 +3,6 @@ import { DEVELOPMENTS } from '../data/config';
 import { ParkJardimDoSolSection } from './ParkJardimDoSolSection';
 import { ParkEspanhaSection } from './ParkEspanhaSection';
 import { UniqueNovoMundoSection } from './UniqueNovoMundoSection';
-import { SimulatorSection } from './SimulatorSection';
-import { LeadForm } from './LeadForm';
-import { FaqSection } from './FaqSection';
 import { 
   ArrowLeft, 
   Building2, 
@@ -80,9 +77,7 @@ export const DevelopmentDetailPage: React.FC<DevelopmentDetailPageProps> = ({
     { id: 'contato', label: 'Contato', icon: <PhoneCall className="w-3.5 h-3.5" /> },
   ];
 
-  const visibleAnchorItems = developmentId === 'jardim-do-sol'
-    ? anchorItems.filter((anchor) => anchor.id === 'sobre' || anchor.id === 'plantas')
-    : anchorItems;
+  const visibleAnchorItems = anchorItems.filter((anchor) => anchor.id === 'sobre' || anchor.id === 'plantas');
 
   return (
     <div className="min-h-screen bg-[#080A0E] text-neutral-100 flex flex-col pt-20">
@@ -153,22 +148,7 @@ export const DevelopmentDetailPage: React.FC<DevelopmentDetailPageProps> = ({
           <UniqueNovoMundoSection onOpenLeadForm={handleOpenLeadForm} />
         )}
 
-        {developmentId !== 'jardim-do-sol' && (
-          <>
-            {/* Dedicated Contextualized Simulator Section */}
-            <div id="simulador-detalhe">
-              <SimulatorSection onOpenLeadForm={handleOpenLeadForm} />
-            </div>
 
-            {/* Dedicated Lead Form Section */}
-            <div id="contato-detalhe">
-              <LeadForm initialDevelopment={currentDev.name} />
-            </div>
-
-            {/* FAQ Section */}
-            <FaqSection />
-          </>
-        )}
       </div>
     </div>
   );
