@@ -8,10 +8,6 @@ import {
   Info
 } from 'lucide-react';
 import { ParkEspanhaFloorPlans } from './park-espanha/ParkEspanhaFloorPlans';
-import { ParkEspanhaLeisure } from './park-espanha/ParkEspanhaLeisure';
-import { ParkEspanhaImplantation } from './park-espanha/ParkEspanhaImplantation';
-import { ParkEspanhaLocation } from './park-espanha/ParkEspanhaLocation';
-import { ParkEspanhaCta } from './park-espanha/ParkEspanhaCta';
 
 interface ParkEspanhaSectionProps {
   onOpenLeadForm: (developmentName: string) => void;
@@ -26,7 +22,7 @@ export const ParkEspanhaSection: React.FC<ParkEspanhaSectionProps> = ({
   return (
     <section
       id="park-espanha"
-      className="relative py-16 sm:py-20 bg-gradient-to-b from-[#0A0C10] via-[#0E131C] to-[#0A0C10] border-t border-white/5 overflow-hidden"
+      className="relative py-8 sm:py-10 bg-gradient-to-b from-[#0A0C10] via-[#0E131C] to-[#0A0C10] border-t border-white/5 overflow-hidden"
     >
       {/* Ambient background glow */}
       <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#FF600B]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -49,7 +45,7 @@ export const ParkEspanhaSection: React.FC<ParkEspanhaSectionProps> = ({
         </div>
 
         {/* Hero Section of Park Espanha */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center mb-7">
           <div className="lg:col-span-6 flex flex-col items-start">
             <div className="text-xs font-mono uppercase font-bold text-[#FF8540] tracking-widest mb-1.5">
               {data.tagline}
@@ -97,7 +93,7 @@ export const ParkEspanhaSection: React.FC<ParkEspanhaSectionProps> = ({
               <img
                 src="/images/park-espanha/fachada-principal.jpg"
                 alt="Perspectiva da Fachada Oficial - Park Espanha"
-                className="w-full h-[280px] sm:h-[360px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-[240px] sm:h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
 
@@ -113,7 +109,7 @@ export const ParkEspanhaSection: React.FC<ParkEspanhaSectionProps> = ({
         </div>
 
         {/* ÚNICA SEÇÃO DE FICHA TÉCNICA (Consolidada e sem duplicações) */}
-        <div className="rounded-2xl bg-[#121622] p-5 sm:p-7 border border-white/10 shadow-lg mb-12">
+        <div className="rounded-2xl bg-[#121622] p-4 sm:p-5 border border-white/10 shadow-lg mb-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5 pb-3 border-b border-white/10">
             <div>
               <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#FF8540] mb-0.5">
@@ -131,7 +127,7 @@ export const ParkEspanhaSection: React.FC<ParkEspanhaSectionProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
             {specsGrid.map((spec, index) => (
               <div
                 key={index}
@@ -151,17 +147,6 @@ export const ParkEspanhaSection: React.FC<ParkEspanhaSectionProps> = ({
         {/* 2. Plantas Técnicas */}
         <ParkEspanhaFloorPlans onOpenLeadForm={onOpenLeadForm} />
 
-        {/* 3. Lazer & Convivência */}
-        <ParkEspanhaLeisure onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 4. Implantação Geral (30 itens) */}
-        <ParkEspanhaImplantation onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 5. Localização */}
-        <ParkEspanhaLocation onOpenLeadForm={onOpenLeadForm} />
-
-        {/* 6. CTA & Apresentação */}
-        <ParkEspanhaCta onOpenLeadForm={onOpenLeadForm} />
 
       </div>
     </section>
