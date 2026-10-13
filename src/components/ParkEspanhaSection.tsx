@@ -65,16 +65,7 @@ export const ParkEspanhaSection: React.FC<ParkEspanhaSectionProps> = ({
 
             {/* Quick Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
-              <button
-                id="btn-park-espanha-cta"
-                onClick={() => onOpenLeadForm('Park Espanha')}
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-[#FF600B] hover:bg-[#E05005] shadow-lg shadow-[#FF600B]/30 transition-all duration-200 cursor-pointer active:scale-95 border border-[#FFA066]/30"
-              >
-                <FileText className="w-4 h-4" />
-                <span>Receber apresentação oficial</span>
-              </button>
-
-              <a
+               <a
                 id="btn-park-espanha-wpp"
                 href={getWhatsAppLink('Olá Wesley! Gostaria de receber informações sobre o Park Espanha da INC.')}
                 target="_blank"
