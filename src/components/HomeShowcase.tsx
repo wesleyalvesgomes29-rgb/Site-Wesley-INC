@@ -11,13 +11,6 @@ export const HomeShowcase: React.FC<HomeShowcaseProps> = ({
 }) => {
   const developments = [
     {
-      id: 'reserva-das-aroeiras' as const,
-      name: 'RESERVA DAS AROEIRAS',
-      location: 'Novo Mundo — Uberlândia',
-      image: 'https://cdn.sanity.io/images/j434ju4g/production/055cf9e6c43ce8828663a836cb856ee291ad1bb4-15000x8439.jpg?rect=2701%2C0%2C9599%2C8439&w=750&h=660&fit=crop&fm=webp&q=80',
-      badge: 'Lançamento',
-    },
-    {
       id: 'park-espanha' as const,
       name: 'PARK ESPANHA',
       location: 'Zona Sul — Uberlândia',
@@ -29,6 +22,13 @@ export const HomeShowcase: React.FC<HomeShowcaseProps> = ({
       name: 'PARK JARDIM DO SOL',
       location: 'Novo Mundo — Uberlândia',
       image: '/images/jardim-do-sol/fachada-principal.jpg',
+      badge: 'Lançamento',
+    },
+    {
+      id: 'reserva-das-aroeiras' as const,
+      name: 'RESERVA DAS AROEIRAS',
+      location: 'Novo Mundo — Uberlândia',
+      image: 'https://cdn.sanity.io/images/j434ju4g/production/055cf9e6c43ce8828663a836cb856ee291ad1bb4-15000x8439.jpg?rect=2701%2C0%2C9599%2C8439&w=750&h=660&fit=crop&fm=webp&q=80',
       badge: 'Lançamento',
     },
     {
