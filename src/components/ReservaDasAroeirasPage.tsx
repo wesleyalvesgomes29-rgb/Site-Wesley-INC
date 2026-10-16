@@ -1,8 +1,8 @@
 import React from 'react';
 import {
   ArrowLeft, ArrowRight, Building2, CheckCircle2, Compass, Dumbbell,
-  Heart, MapPin, MessageCircle, PawPrint, Trees, Waves, Wind, Baby,
-  Clapperboard, Flame, Flower2, Bike, Sofa, Sparkles, ShieldCheck,
+  Heart, MapPin, MessageCircle, PawPrint, Trees, Waves, Baby,
+  Clapperboard, Flame, Bike, Sofa, Sparkles, ShieldCheck,
 } from 'lucide-react';
 import { getWhatsAppLink } from '../data/config';
 
@@ -19,7 +19,6 @@ const images = {
   cinema: 'https://cdn.sanity.io/images/j434ju4g/production/dba4fe617b9940f96c34b55eafa52ff78d422664-5504x3072.png?rect=1005%2C0%2C3494%2C3072&w=900&h=620&fit=crop&fm=webp&q=80',
   meio: 'https://cdn.sanity.io/images/j434ju4g/production/71195f3f0152f38aeed2201fb6d2932aa81e363b-3000x3000.png?w=800&h=800&fit=contain&fm=webp&q=85',
   ponta: 'https://cdn.sanity.io/images/j434ju4g/production/779168cecb24a5875db90824a6a026ac0f672aa2-3000x3000.png?w=800&h=800&fit=contain&fm=webp&q=85',
-  fitness: 'https://cdn.sanity.io/images/j434ju4g/production/71195f3f0152f38aeed2201fb6d2932aa81e363b-3000x3000.png?w=800&h=800&fit=contain&fm=webp&q=85',
 };
 
 const amenities = [
