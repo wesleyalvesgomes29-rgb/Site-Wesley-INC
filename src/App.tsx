@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HomeShowcase } from './components/HomeShowcase';
 import { DevelopmentDetailPage } from './components/DevelopmentDetailPage';
+import { ReservaDasAroeirasPage } from './components/ReservaDasAroeirasPage';
 import { HomeContactSection } from './components/HomeContactSection';
 import { Footer } from './components/Footer';
 
@@ -17,6 +18,7 @@ export default function App() {
       if (pathname.includes('jardim-do-sol')) return '/empreendimentos/jardim-do-sol';
       if (pathname.includes('park-espanha')) return '/empreendimentos/park-espanha';
       if (pathname.includes('unique-novo-mundo')) return '/empreendimentos/unique-novo-mundo';
+      if (pathname.includes('reserva-das-aroeiras')) return '/empreendimentos/reserva-das-aroeiras';
       return '/';
     }
     return '/';
@@ -32,6 +34,8 @@ export default function App() {
         setCurrentPath('/empreendimentos/park-espanha');
       } else if (pathname.includes('unique-novo-mundo')) {
         setCurrentPath('/empreendimentos/unique-novo-mundo');
+      } else if (pathname.includes('reserva-das-aroeiras')) {
+        setCurrentPath('/empreendimentos/reserva-das-aroeiras');
       } else {
         setCurrentPath('/');
       }
@@ -41,7 +45,6 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Navigate to path function
   const navigateToPath = (path: string) => {
     if (path.startsWith('/#')) {
       const sectionId = path.replace('/#', '');
@@ -79,61 +82,49 @@ export default function App() {
       const navOffset = 80;
       const elementPosition = el.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
   return (
     <div className="min-h-screen bg-[#080A0E] text-neutral-100 flex flex-col font-sans selection:bg-[#FF600B] selection:text-white">
-      {/* Sticky Glass Navbar with Routing & Section Support */}
       <Navbar
         currentPath={currentPath}
         onNavigateToPath={navigateToPath}
         onNavigateToSection={scrollToSection}
       />
 
-      {/* Main Content Router */}
       <main className="flex-grow">
         {currentPath === '/empreendimentos/jardim-do-sol' ? (
-          /* Individual Page: Park Jardim do Sol */
           <DevelopmentDetailPage
             developmentId="jardim-do-sol"
             onNavigateToHome={() => navigateToPath('/')}
             onNavigateToDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
           />
         ) : currentPath === '/empreendimentos/park-espanha' ? (
-          /* Individual Page: Park Espanha */
           <DevelopmentDetailPage
             developmentId="park-espanha"
             onNavigateToHome={() => navigateToPath('/')}
             onNavigateToDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
           />
         ) : currentPath === '/empreendimentos/unique-novo-mundo' ? (
-          /* Individual Page: Unique Novo Mundo */
           <DevelopmentDetailPage
             developmentId="unique-novo-mundo"
             onNavigateToHome={() => navigateToPath('/')}
             onNavigateToDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
           />
+        ) : currentPath === '/empreendimentos/reserva-das-aroeiras' ? (
+          <ReservaDasAroeirasPage onNavigateToHome={() => navigateToPath('/')} />
         ) : (
-          /* Home Page: Clean, Single Unified Composition */
           <>
-            {/* 1. Composição Única: Chibi + Apresentação + Empreendimentos */}
             <HomeShowcase
               onSelectDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
             />
-
-            {/* 2. Bloco de Contato Simples e Direto */}
             <HomeContactSection />
           </>
         )}
       </main>
 
-      {/* Global Footer */}
       <Footer
         onNavigateToPath={navigateToPath}
         onNavigateToSection={scrollToSection}
