@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HomeShowcase } from './components/HomeShowcase';
 import { DevelopmentDetailPage } from './components/DevelopmentDetailPage';
+import { ReservaDasAroeirasPage } from './components/ReservaDasAroeirasPage';
 import { HomeContactSection } from './components/HomeContactSection';
 import { Footer } from './components/Footer';
 
@@ -17,6 +18,7 @@ export default function App() {
       if (pathname.includes('jardim-do-sol')) return '/empreendimentos/jardim-do-sol';
       if (pathname.includes('park-espanha')) return '/empreendimentos/park-espanha';
       if (pathname.includes('unique-novo-mundo')) return '/empreendimentos/unique-novo-mundo';
+      if (pathname.includes('reserva-das-aroeiras')) return '/empreendimentos/reserva-das-aroeiras';
       return '/';
     }
     return '/';
@@ -32,6 +34,8 @@ export default function App() {
         setCurrentPath('/empreendimentos/park-espanha');
       } else if (pathname.includes('unique-novo-mundo')) {
         setCurrentPath('/empreendimentos/unique-novo-mundo');
+      } else if (pathname.includes('reserva-das-aroeiras')) {
+        setCurrentPath('/empreendimentos/reserva-das-aroeiras');
       } else {
         setCurrentPath('/');
       }
@@ -119,6 +123,8 @@ export default function App() {
             onNavigateToHome={() => navigateToPath('/')}
             onNavigateToDevelopment={(id) => navigateToPath(`/empreendimentos/${id}`)}
           />
+        ) : currentPath === '/empreendimentos/reserva-das-aroeiras' ? (
+          <ReservaDasAroeirasPage onNavigateToHome={() => navigateToPath('/')} />
         ) : (
           /* Home Page: Clean, Single Unified Composition */
           <>
